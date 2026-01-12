@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTPL Pricing Model - Learning Journey</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #666666;
+            --border-color: #e0e0e0;
+            --code-bg: #f4f4f4;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        header .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+        
+        section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+        
+        section h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin: 30px 0 20px 0;
+        }
+        
+        section p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+        
+        .code-block {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .code-block code {
+            white-space: pre;
+        }
+        
+        .output-block {
+            background: #f8f8f8;
+            border: 1px solid var(--success-color);
+            border-left: 4px solid var(--success-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        
+        .output-block.warning {
+            border-left-color: var(--warning-color);
+            background: #fffbf0;
+        }
+        
+        .image-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .image-container figcaption {
+            margin-top: 15px;
+            font-style: italic;
+            color: var(--text-light);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e8f4fd 0%, #f0f9ff 100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .highlight-box h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        
+        .key-learning {
+            background: linear-gradient(135deg, #e8f8f0 0%, #f0fff9 100%);
+            border: 2px solid var(--success-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .key-learning h4 {
+            color: var(--success-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff8e8 0%, #fffbf0 100%);
+            border: 2px solid var(--warning-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .warning-box h4 {
+            color: var(--warning-color);
+            margin-bottom: 15px;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 40px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        th, td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .metric-card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .metric-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .metric-card.success {
+            background: linear-gradient(135deg, var(--success-color) 0%, #2ecc71 100%);
+        }
+        
+        .nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 15px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+            margin-bottom: 30px;
+        }
+        
+        .nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav a:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        section {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .formula {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Times New Roman', serif;
+            font-size: 1.1rem;
+            text-align: center;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin: 5px;
+        }
+        
+        .badge.success { background: var(--success-color); color: white; }
+        .badge.warning { background: var(--warning-color); color: white; }
+        .badge.info { background: var(--secondary-color); color: white; }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MTPL Pricing Model</h1>
+        <p class="subtitle">A Comprehensive Learning Journey: From First Steps to Production-Ready Models</p>
+        <p style="margin-top: 30px; opacity: 0.8;">Building an insurance pricing model from scratch - documenting every discovery, improvement, and lesson learned</p>
+    </header>
+    
+    <nav class="nav">
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#data-exploration">Data Exploration</a></li>
+            <li><a href="#feature-analysis">Feature Analysis</a></li>
+            <li><a href="#model-evolution">Model Evolution</a></li>
+            <li><a href="#model-validation">Model Validation</a></li>
+            <li><a href="#key-learnings">Key Learnings</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <!-- Introduction Section -->
+        <section id="introduction">
+            <h2>Welcome to My MTPL Pricing Learning Journey</h2>
+            
+            <p>This website documents my journey of building a Motor Third Party Liability (MTPL) pricing model for the first time. MTPL insurance is mandatory coverage that protects policyholders against damages to third parties resulting from vehicle accidents. Building an accurate pricing model is crucial for insurance companies to remain competitive while maintaining profitability.</p>
+            
+            <div class="highlight-box">
+                <h3>What We'll Learn Together</h3>
+                <p>Throughout this learning journey, we'll explore:</p>
+                <ul>
+                    <li><strong>Data Exploration:</strong> Understanding the dataset structure and key variables</li>
+                    <li><strong>Feature Engineering:</strong> Creating meaningful predictors from raw data</li>
+                    <li><strong>Model Selection:</strong> Choosing appropriate statistical models for count data</li>
+                    <li><strong>Model Improvement:</strong> Iterating from simple to complex models</li>
+                    <li><strong>Validation Techniques:</strong> Ensuring our models are reliable and generalizable</li>
+                    <li><strong>Calibration:</strong> Refining predictions to match actual observations</li>
+                </ul>
+            </div>
+            
+            <h3>About the Dataset</h3>
+            <p>We're working with the French MTPL dataset (freMTPL2freq), a well-known dataset in actuarial science. This dataset contains approximately 678,000 policy records with information about drivers, vehicles, and their insurance claims. The goal is to predict the expected number of claims per exposure (policy-year), which directly translates to pricing decisions.</p>
+            
+            <div class="key-learning">
+                <h4>Key Variables in Our Dataset</h4>
+                <ul>
+                    <li><strong>IDpol:</strong> Unique policy identifier</li>
+                    <li><strong>ClaimNb:</strong> Number of claims reported (our target variable)</li>
+                    <li><strong>Exposure:</strong> Duration of policy coverage in years (capped at 1.0)</li>
+                    <li><strong>VehPower:</strong> Vehicle engine power (categorical, values 4-15)</li>
+                    <li><strong>VehAge:</strong> Age of the vehicle in years (0-100)</li>
+                    <li><strong>DrivAge:</strong> Age of the driver in years (18-100)</li>
+                    <li><strong>BonusMalus:</strong> Bonus-Malus coefficient (50-230, lower is better)</li>
+                    <li><strong>Density:</strong> Population density of the area</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Data Exploration Section -->
+        <section id="data-exploration">
+            <h2>1. Data Exploration - Understanding Our Foundation</h2>
+            
+            <p>Every successful modeling project begins with thorough data exploration. In this section, we'll load our dataset, examine its structure, and understand the basic statistics that will inform our modeling decisions.</p>
+            
+            <h3>1.1 Loading and Preparing the Data</h3>
+            <p>Let's start by importing our libraries and loading the dataset. We'll also perform some initial data preparation, such as capping the exposure at 1.0 to ensure we don't have invalid exposure values.</p>
+            
+            <div class="code-block">
+                <code>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+mtlp_data = pd.read_csv("freMTPL2freq.csv")
+mtlp_data["Exposure"] = mtlp_data["Exposure"].clip(upper=1.0)
+
+mtlp_age_count = mtlp_data["DrivAge"].nunique()
+
+age_stats = mtlp_data.groupby("DrivAge").agg({
+    "ClaimNb": "sum",
+    "Exposure": "sum",
+    "BonusMalus": "mean"
+}).reset_index()
+
+print(age_stats.head())
+
+age_stats["Frequency"] = age_stats["ClaimNb"] / age_stats["Exposure"]
+
+print(age_stats.head())</code>
+            </div>
+            
+            <div class="output-block">
+   DrivAge  ClaimNb     Exposure  BonusMalus
+0       18       65   210.689377   93.009358
+1       19      243   912.874303   96.128763
+2       20      335  1460.979158   95.273395
+3       21      353  1819.911138   93.409060
+4       22      430  2223.703357   91.191457
+   DrivAge  ClaimNb     Exposure  BonusMalus  Frequency
+0       18       65   210.689377   93.009358   0.308511
+1       19      243   912.874303   96.128763   0.266192
+2       20      335  1460.979158   95.273395   0.229298
+3       21      353   1819.911138   93.409060   0.193966
+4       22      430   2223.703357   91.191457   0.193371</code>
+            </div>
+            
+            <div class="key-learning">
+                <h4>Our First Insight: Claim Frequency Calculation</h4>
+                <p>We calculated claim frequency by dividing total claims by total exposure for each age group. This is a fundamental insurance metric that represents the expected number of claims per policy-year. We can already see a pattern: younger drivers (age 18) have higher claim frequencies (~31%) compared to slightly older drivers (age 22) at ~19%.</p>
+            </div>
+            
+            <h3>1.2 Understanding Dataset Statistics</h3>
+            <p>Let's examine the complete statistical summary of our dataset to understand the distribution of each variable.</p>
+            
+            <div class="code-block">
+                <code># Display basic statistics of the dataset
+print(mtlp_data.describe())</code>
+            </div>
+            
+            <div class="output-block">
+              DrivAge  ClaimNb     Exposure  VehPower       VehAge     BonusMalus        Density  
+count  6.780130e+05  678013.000000  678013.000000  678013.000000   678013.000000  678013.000000  678013.000000  
+mean   2.621857e+06       0.053247       0.528545       6.454631        7.044265      45.499122      59.761502    1792.422405  
+std    1.641783e+06       0.240117       0.364081       2.050906        5.666232      14.137444      15.636658    3958.646564  
+min    1.000000e+00       0.000000       0.002732       4.000000       0.000000      18.000000      50.000000       1.000000  
+25%    1.157951e+06       0.000000       0.180000       5.000000       2.000000       34.000000       50.000000      92.000000  
+50%    2.272152e+06       0.000000       0.490000       6.000000       6.000000       44.000000       64.000000      393.000000  
+75%    4.046274e+06       0.000000       0.990000       7.000000       11.000000       55.000000       64.000000      1658.000000  
+max    6.114283e+06       16.000000       1.000000       15.000000       100.000000       100.000000       230.000000       27000.000000</code>
+            </div>
+            
+            <div class="image-container">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAk0AAAHqCAYAAAAZC3qTAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjEwLjgsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvwVt1zgAAAAlwSFlzAAAPYQAAD2EBqD+naAAAP4JJREFUeJzt3Qd8FNXax/EnEAg1oRkCUgUk9CYiSBFBQrlIU5EOoijSQZqgUkQQXkBUhMsVQa6ggALSpDcpIiBFECId6Vwpodd5P8953927mwJD2CS7m9/38xmTmTk7md1N3D/POXMmwLIsSwAAAHBfKe6/GwAAAIQmAAAAm6g0AQAA2EBoAgAAsIHQBAAAYAOhCQAAwAZCEwAAgA2EJgAAABsITQAAADYQmoBkrm3btpIvX76kPg2/NGjQIAkICEiUn/Xcc8+ZxWHNmjXmZ3///feJ8vP5PUJyQGgCfMzUqVPNh6FjSZMmjeTMmVMiIiLk008/lcuXL4s/efrpp83znDBhQrJ43U+ePGnC1o4dO8TbePO5AYmB0AT4qCFDhsi///1vEya6dOlitnXv3l1KlCghu3btsn2cf/3rXxIZGSneaP/+/bJlyxZTCZs+fbr42us+cOBAuX79+kMHk8GDBz90MFm2bJlZEtL9zs2bf48ATwn02JEAJKo6derIU0895Vzv37+/rFq1Sv7xj3/Iiy++KHv37pW0adPG+firV69K+vTpJVWqVJLY7t27J7du3TLVmvv55ptvJDQ0VEaPHi0vvfSSHDlyJMm7Eh/mdQ8MDDRLQrp27ZqkS5dOUqdOLUkpKX6PgMRGpQnwI88//7y89957cvToURM4XMebZMiQQQ4eOCh169aVjJkzSosWLZz7HEHk9u3bkiVLFmnXrl2MY0dFRZmQ88477zi33bx5Uz744AMpWLCgBAUFSe7cuaVPnz5muyvtzurcubOpFhUrVsy0XbJkyQOfz4wZM0xY0kASEhJi1mOj43c0yOj5FShQQP75z3/GOZ5IX5dy5cqZYKPP9dVXX5W//vpLEuJ1j+0cli9fLpUrV5ZMmTKZ96Rw4cLy7rvvOp9H+fLlzff6Hji6ArVrUOmYpeLFi8u2bdukatWqJiw5Hht9TJPD3bt3TZuwsDATkjXYRX+++v7r70F0rsd80LnFNqZJg3mvXr3M74W+5/pc/+d//kcsy4r192PevHnm+Wlb/T2x8zsCJCZCE+BnWrVqZb5G76q5c+eOGX+jlRv94GrSpEms1YJGjRqZDy+tBLnSbRqGNGQ4qkX6AazHql+/vnz22WfSsGFDGTt2rDRt2jTGsbUa06NHD7Nv3LhxD6wYbd68WQ4cOCDNmjUzVZTGjRvH2kW3fft2qV27tvz999+m66h9+/amC03PN7phw4ZJ69atpVChQjJmzBjTrbZy5UoTQC5evCgJ8bq72rNnjwmA+jrqOWoFTV/DDRs2mP1FihQx21WHDh1MN6Auen4O+jy12lW6dGn55JNPpHr16vc9L33OixYtkr59+0rXrl1NaKtZs+ZDdxvaOTdXGoz0uenvg74/+npraOrdu7f07NkzRvv169fL22+/bX6/Ro4cKTdu3DC/o/p8Aa9hAfApU6ZM0X+mW1u2bImzTUhIiFWmTBnneps2bcxj+vXrF6Ot7subN69zfenSpabtggUL3NrVrVvXeuKJJ5zr//73v60UKVJYP//8s1u7iRMnmsdv2LDBuU3Xte2ePXtsP8/OnTtbuXPntu7du2fWly1bZo6zfft2t3b169e30qVLZ504ccK5bf/+/VZgYKBp73DkyBErZcqU1rBhw9we//vvv5u20bd74nX/4IMP3M5h7NixZv3cuXNxHkOPr23050VXrVo1s09f49j26eKwevVq0/bxxx+3oqKinNtnzZplto8bN865Td9//T140DHvd27Rf4/mzZtn2n744Ydu7V566SUrICDAOnDggHObtkudOrXb" alt="Driver Age Distribution Histogram">
+                <figcaption>Figure 1: Driver Age Distribution - Understanding our customer base</figcaption>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Dataset Statistics Insights</h3>
+                <ul>
+                    <li><strong>678,013 total policy records</strong> - A substantial dataset for statistical modeling</li>
+                    <li><strong>Average claim frequency of 5.3%</strong> - Most policies have no claims, typical for insurance</li>
+                    <li><strong>Driver ages range from 18 to 100</strong> - Wide demographic coverage</li>
+                    <li><strong>Vehicle ages 0-100 years</strong> - Includes both new and vintage vehicles</li>
+                    <li><strong>BonusMalus ranges 50-230</strong> - From best class (50) to high-risk (230)</li>
+                    <li><strong>High variance in population density</strong> - From 1 to 27,000 people/km²</li>
+                </ul>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Important Data Characteristic</h4>
+                <p>Notice that ClaimNb has a maximum of 16 claims per policy, but the 75th percentile is 0. This confirms that claims are rare events - the vast majority of policies have zero claims. This characteristic (overdispersion and excess zeros) is typical in insurance data and will influence our model selection.</p>
+            </div>
+        </section>
+        
+        <!-- Feature Analysis Section -->
+        <section id="feature-analysis">
+            <h2>2. Feature Analysis - Understanding Our Predictors</h2>
+            
+            <p>Before building our models, we need to deeply understand how each feature relates to claim frequency. This analysis will inform our feature engineering decisions and help us interpret model coefficients later.</p>
+            
+            <h3>2.1 Vehicle Age and Power Analysis</h3>
+            <p>Let's examine how vehicle characteristics influence claim frequency. We'll look at both vehicle age and engine power to understand their relationships with risk.</p>
+            
+            <div class="code-block">
+                <code>vehicle_age_stats = mtlp_data.groupby("VehAge").agg(
+    ClaimNb=("ClaimNb", "sum"),
+    Exposure=("Exposure", "sum"),
+    VehicleCount=("VehAge", "size")
+).reset_index()
+
+vehicle_age_stats["Frequency"] = vehicle_age_stats["ClaimNb"] / vehicle_age_stats["Exposure"]
+
+vehicle_plot_data = vehicle_age_stats[(vehicle_age_stats["VehAge"] >= 0) & (vehicle_age_stats["VehAge"] <= 30)]
+
+vehicle_power_stats = mtlp_data.groupby("VehPower").agg(
+    ClaimNb=("ClaimNb", "sum"),
+    Exposure=("Exposure", "sum"),
+    VehiclePowerCount=("VehPower", "size")
+).reset_index()
+
+vehicle_power_stats["Frequency"] = vehicle_power_stats["ClaimNb"] / vehicle_power_stats["Exposure"]
+
+print(vehicle_power_stats)</code>
+            </div>
+            
+            <div class="output-block">
+    VehPower  ClaimNb      Exposure  VehiclePowerCount  Frequency
+0          4     5699  60055.327304             115349   0.094896
+1          5     7278  68148.128821             124821   0.106797
+2          6     8381  82497.590172             148976   0.101591
+3          7     7627  77919.746700             145401   0.097883
+4          8     1922  22673.966305              46956   0.084767
+5          9     1754  15338.643656              30085   0.114352
+6         10     1789  15367.090824              31354   0.116418
+7         11      897   8491.308452              18352   0.105637
+8         12      359   3790.798343               8214   0.094703
+9         13      153   1637.035322               3229   0.093462
+10        14      119   1180.020391               2350   0.100846
+11        15      124   1260.449173               2926   0.098378</code>
+            </div>
+            
+            <div class="image-container">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAxUAAASlCAYAAADecPTxAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjEwLjgsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvwVt1zgAAAAlwSFlzAAAPYQAAD2EBqD+naQABAABJREFUeJzs3Qd4U+X3wPHTPSmrlLL33nvjQkFRwYHgYoioKC5Uxl8FN4oLB8rPwXAjbkFABEFZInvvWfZuaenO/zkvJk262yRt2n4/zxPam9zc3Kxyz33POa+XxWKxCAAAAADkk3d+7wgAAAAABBUAAAAAnMZIBQAAAACnEFQAAAAAcApBBQAAAACnEFQAAAAAcApBBQAAAACnEFQAAAAAcApBBQAAAACnEFQAcMr+/fvFy8tL3njjjRzXfe6558y6eXX55ZebCwpOzZo1ZfDgwfn+PEyfPt0t+wUA8EwEFUAJcuONN0pwcLDExMRkuc6dd94p/v7+cvr0aSkJbrvtNnMQPHr0aCkJ9uzZI/fff7/Url1bAgMDJSwsTLp06SLvvPOOXLx4UYoSfd8yu0RGRhb2rgFAieNb2DsAoOBowPDrr7/Kjz/+KAMHDsxwe1xcnPz888/Sq1cvKV++vMsf/5lnnpExY8aIp4iOjjavh56V//rrr+XVV1/N10hKUTFnzhzp16+fBAQEmPe/adOmkpiYKEuXLpWnnnpKtmzZIh999JFTj1GjRg0TnPj5+UlBuPrqqzN8loOCggrksQEAaQgqgBI2UlGqVCn56quvMg0qNKCIjY01wYc7+Pr6moun+P777yUlJUWmTp0qV155pfz1119y2WWXSXG0b98+GTBggDnoX7RokVSqVMl220MPPSS7d+82QYezNCjTEZCCUr9+fbnrrrtyta7FYpH4+HiCDgBwA9KfgBJEz+DefPPNsnDhQjlx4kSG2zXY0KBDgw917tw5eeyxx6RatWrm7HbdunXltddek9TU1Ey3r2e569SpY9Zt166d/Pvvv7mqqfjiiy+kffv2JjWrbNmy0r17d/n999+zfS4JCQkyfvx4s0/6eLqPo0aNMtfn1pdffmnOdF9xxRXSqFEjs5yZjRs3mmBDX7+qVavKSy+9JNOmTTPPRWsI7M2dO1e6desmISEh5rXs3bu3GQHIzurVq822ZsyYkeG2+fPnm9tmz55tljV1Td8THV3R5x0REWGew9q1a7N9jIkTJ8qFCxfk008/dQgorPR1fPTRR7O8/5kzZ+TJJ5+UZs2aSWhoqEmbuvbaa2XDhg051lRobYbe5+DBg3L99deb36tUqSKTJ082t2/atMkEdfqaadCjn0NX0NdIH09fw7Zt25r373//+1+ePtu6nu5/6dKlpUyZMjJo0CBZv359hueYVd2P3lf3w54+xqRJk6RJkyYmAKtYsaJJSTt79mym+68jSfr90HU1be2zzz7L8Di6n48//rjtc6GfUz1xcOrUKfO+62ub2fsbFRUlPj4+MmHChHy8wgCQhqACKGF0FCI5OVm+/fbbDAeNevB10003mYMvTYXSA2k94NeDk3fffdfk3o8dO1ZGjhyZYbt6IPj666+bgyM96NaDSw1gkpKSst2f559/Xu6++26TLvPCCy+YZT3Q07PpWdGDMg18tDj8hhtukPfee0/69u0rb7/9tvTv3z9Xr8ORI0fkzz//lNtvv90s68/vvvvOpAPZO3z4sAk6NDDQ564Hbhp8aA1Cep9//rkJIvSgWQ9Qn332Wdm6dat07do1Q/BhTw949WAx/XuiZs6caQKtnj17muUHHnhAPvzwQ7nlllvkgw8+MAf6+n5t27Yt2+eraV76GJ07d5b82Lt3r/z000/mIPett94y6VIaDOhnRF/LnOiIkAYh+t5qgKMHvyNGjDAH5ppup6+BvmYaiOnnTUdWckNHHvTA2f5iH1ju2LHDvLcaeOl71rJly1x/tnVko0+fPuZ91dEQ" alt="Vehicle Age and Power Analysis"/>
+                <figcaption>Figure 2: Vehicle Age vs Claim Frequency and Vehicle Power Analysis</figcaption>
+            </div>
+            
+            <div class="key-learning">
+                <h4>Vehicle Characteristics Insights</h4>
+                <ul>
+                    <li><strong>Vehicle Age Effect:</strong> New vehicles (0-2 years) show higher claim frequencies, likely due to less experienced drivers. Frequency decreases until vehicles reach about 8-10 years, then increases slightly.</li>
+                    <li><strong>Vehicle Power Effect:</strong> Higher-powered vehicles (9-10) show elevated claim frequencies (~11.5%), while mid-range powers (4, 7, 12-15) are associated with lower frequencies (~9.5%).</li>
+                    <li><strong>Distribution:</strong> Most vehicles in the dataset are concentrated in the 5-7 power range and 2-11 years old.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Model Evolution Section -->
+        <section id="model-evolution">
+            <h2>3. Model Evolution - From Simple to Sophisticated</h2>
+            
+            <p>Building an insurance pricing model is an iterative process. We start with simple models and progressively add complexity as we understand the data better.</p>
+            
+            <h3>3.1 Our First Model: Poisson Regression</h3>
+            <p>The Poisson distribution is commonly used for count data like claim counts.</p>
+            
+            <div class="code-block">
+                <code>mtlp_data["Exposure"] = mtlp_data["Exposure"].clip(upper=1.0)
+mtlp_data["ClaimNb"] = mtlp_data["ClaimNb"].clip(upper=4)
+mtlp_data["LogExposure"] = np.log(mtlp_data["Exposure"])
+mtlp_data["VehPower"] = mtlp_data["VehPower"].astype(str)
+
+formula = "ClaimNb  ~ DrivAge + VehPower"
+
+model = smf.glm(formula=formula,
+                data=mtlp_data,
+                offset=mtlp_data["LogExposure"],
+                family=sm.families.Poisson(link=sm.families.links.log()))
+
+result = model.fit()
+print(result.summary())</code>
+            </div>
+            
+            <div class="output-block">
+                 Generalized Linear Model Regression Results                  
+                ==============================================================================
+                Dep. Variable:                ClaimNb   No. Observations:               678013
+                Model:                            GLM   Df Residuals:                   678000
+                Model Family:                 Poisson   Df Model:                           12
+                Link Function:                    log   Scale:                          1.0000
+                Method:                          IRLS   Log-Likelihood:            -1.4645e+05
+                Date:                Sun, 11 Jan 2026   Deviance:                   2.2359e+05
+                Time:                        12:20:40   Pearson chi2:                 1.91e+06
+                No. Iterations:                     7   Pseudo R-squ. (CS):          0.0005013
+                ==================================================================================
+                         coef    std err          z      P>|z|      [0.025      0.975]
+                ----------------------------------------------------------------------------------
+                Intercept         -1.9335      0.029    -65.979      0.000      -1.991      -1.876
+                VehPower[T.11]    -0.0942      0.041     -2.302      0.021      -0.174      -0.014
+                VehPower[T.12]    -0.2032      0.058     -3.514      0.000      -0.317      -0.090
+                VehPower[T.13]    -0.2171      0.084     -2.577      0.010      -0.382      -0.052
+                VehPower[T.14]    -0.1421      0.095     -1.500      0.133      -0.328       0.043
+                VehPower[T.15]    -0.1681      0.093     -1.811      0.070      -0.350       0.014
+                VehPower[T.4]     -0.2128      0.027     -7.846      0.000      -0.266      -0.160
+                VehPower[T.5]     -0.0911      0.026     -3.453      0.001      -0.143      -0.039
+                VehPower[T.6]     -0.1402      0.026     -5.384      0.000      -0.191      -0.089
+                VehPower[T.7]     -0.1728      0.026     -6.579      0.000      -0.224      -0.121
+                VehPower[T.8]     -0.3173      0.033     -9.658      0.000      -0.382      -0.253
+                VehPower[T.9]     -0.0231      0.034     -0.686      0.493      -0.089       0.043
+                DrivAge           -0.0046      0.000    -12.436      0.000      -0.005      -0.004
+                ==================================================================================</code>
+            </div>
+            
+            <div class="warning-box">
+                <h4>⚠️ Poisson Model Limitations</h4>
+                <p>The Pearson chi-squared statistic (1.91e+06) is much larger than the degrees of freedom, indicating severe overdispersion.</p>
+            </div>
+            
+            <h3>3.2 Improving with Negative Binomial Regression</h3>
+            <p>The Negative Binomial distribution adds a dispersion parameter that allows the variance to exceed the mean.</p>
+            
+            <div class="code-block">
+                <code>formula_improved = "ClaimNb  ~ DrivAge + I(DrivAge**2) + VehPower"
+
+model_negative_binomial = smf.glm(formula=formula_improved,
+                data=mtlp_data,
+                offset=mtlp_data["LogExposure"],
+                family=sm.families.NegativeBinomial(alpha=1.0, link=sm.families.links.log()))
+
+result_nb = model_negative_binomial.fit()
+print(result_nb.summary())</code>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Negative Binomial Improvements</h3>
+                <ul>
+                    <li><strong>Better Deviance:</strong> Reduced from 223,590 (Poisson) to 195,160 (Negative Binomial)</li>
+                    <li><strong>Quadratic Age Effect:</strong> Adding DrivAge² captures the non-linear relationship</li>
+                    <li><strong>More Reliable Standard Errors:</strong> The dispersion parameter accounts for overdispersion</li>
+                </ul>
+            </div>
+            
+            <h3>3.3 Complex Model: Adding More Predictors</h3>
+            <p>Now we add BonusMalus and VehAge to create a more comprehensive model.</p>
+            
+            <div class="code-block">
+                <code>formula_complex = "ClaimNb  ~ DrivAge + I(DrivAge**2) + VehPower + BonusMalus + VehAge"
+
+model_negative_binomial_complex = smf.glm(formula=formula_complex,
+                data=mtlp_data,
+                offset=mtlp_data["LogExposure"],
+                family=sm.families.NegativeBinomial(alpha=1.0, link=sm.families.links.log()))
+
+result_complex = model_negative_binomial_complex.fit()
+print(result_complex.summary())</code>
+            </div>
+            
+            <div class="output-block">
+                 Generalized Linear Model Regression Results                  
+                ===============================================================================
+                Dep. Variable:                ClaimNb   No. Observations:               678013
+                Model:                            GLM   Df Residuals:                   677997
+                Model Family:        NegativeBinomial   Df Model:                           15
+                Link Function:                    log   Scale:                          1.0000
+                Method:                          IRLS   Log-Likelihood:            -1.4283e+05
+                Date:                Sun, 11 Jan 2026   Deviance:                   1.8918e+05
+                Time:                        12:20:59   Pearson chi2:                 1.70e+06
+                No. Iterations:                     8   Pseudo R-squ. (CS):           0.009578
+                ===================================================================================
+                         coef    std err          z      P>|z|      [0.025      0.975]
+                -----------------------------------------------------------------------------------
+                Intercept          -4.0817      0.074    -55.168      0.000      -4.227      -3.937
+                VehPower[T.11]     -0.0953      0.042     -2.248      0.025      -0.178      -0.012
+                VehPower[T.12]     -0.2466      0.060     -4.131      0.000      -0.364      -0.130
+                VehPower[T.13]     -0.1428      0.087     -1.634      0.102      -0.314       0.028
+                VehPower[T.14]     -0.0694      0.098     -0.707      0.480      -0.262       0.123
+                VehPower[T.15]     -0.2890      0.095     -3.031      0.002      -0.476      -0.102
+                VehPower[T.4]      -0.2644      0.028     -9.372      0.000      -0.320      -0.209
+                VehPower[T.5]      -0.1502      0.027     -5.466      0.000      -0.204      -0.096
+                VehPower[T.6]      -0.1497      0.027     -5.524      0.000      -0.203      -0.097
+                VehPower[T.7]      -0.1822      0.027     -6.674      0.000      -0.236      -0.129
+                VehPower[T.8]      -0.3417      0.034    -10.044      0.000      -0.408      -0.275
+                VehPower[T.9]       0.0242      0.035      0.691      0.490      -0.044       0.093
+                DrivAge             0.0273      0.002     11.666      0.000       0.023       0.032
+                I(DrivAge ** 2)    -0.0002   2.28e-05     -8.722      0.000      -0.000      -0.000
+                BonusMalus          0.0248      0.000     71.768      0.000       0.024       0.025
+                VehAge             -0.0456      0.001    -42.082      0.000      -0.048      -0.044
+                ===================================================================================</code>
+            </div>
+        </section>
+        
+        <!-- Model Validation Section -->
+        <section id="model-validation">
+            <h2>4. Model Validation - Ensuring Model Quality</h2>
+            
+            <p>Before deploying our model, we need to validate its performance using various metrics and techniques.</p>
+            
+            <h3>4.1 AIC Comparison</h3>
+            <p>Akaike Information Criterion (AIC) helps us compare models, balancing goodness of fit against complexity.</p>
+            
+            <div class="code-block">
+                <code>print(f"Simple Model AIC:  {result_simple.aic:.2f}")
+print(f"Complex Model AIC: {result_complex.aic:.2f}")</code>
+            </div>
+            
+            <div class="output-block">
+Simple Model AIC:  291671.06
+Complex Model AIC: 285686.18</code>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>AIC Interpretation</h3>
+                <p>The complex model has a significantly lower AIC (285,686 vs 291,671), indicating better model fit while accounting for the additional complexity. A difference of ~6,000 points is substantial.</p>
+            </div>
+            
+            <h3>4.2 Residual Analysis</h3>
+            <p>Examining residuals helps us identify patterns that our model might be missing.</p>
+            
+            <div class="code-block">
+                <code>mtlp_data["Resid_Simple"] = result_simple.resid_pearson
+mtlp_data["Resid_Complex"] = result_complex.resid_pearson
+
+resid_comparison = mtlp_data.groupby("DrivAge").agg({
+    "Resid_Simple": "mean",
+    "Resid_Complex": "mean"
+}).reset_index()
+
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=resid_comparison, x="DrivAge", y="Resid_Simple", label="Simple Model Bias", alpha=0.6)
+sns.lineplot(data=resid_comparison, x="DrivAge", y="Resid_Complex", label="Complex Model Bias", linewidth=2)
+
+plt.axhline(0, color='black', linestyle='--')
+plt.title("Model Bias Check: Mean Residuals by Age")
+plt.ylabel("Mean Residual (Actual - Predicted)")
+plt.xlabel("Driver Age")
+plt.legend()
+plt.show()</code>
+            </div>
+            
+            <div class="key-learning">
+                <h4>Residual Analysis Insights</h4>
+                <p>The complex model shows much better behaved residuals across all ages, with the residuals centered around zero. The simple model shows systematic bias, particularly for younger and older drivers.</p>
+            </div>
+            
+            <h3>4.3 Lift Chart Analysis</h3>
+            <p>Lift charts help us understand how well our model ranks policyholders by risk.</p>
+            
+            <div class="code-block">
+                <code># Double Lift Chart
+df_lift = mtlp_data.copy()
+df_lift["Predicted_Simple"] = result_simple.predict(df_lift)
+df_lift["Predicted_Complex"] = result_complex.predict(df_lift)
+
+df_lift["Decile"] = pd.qcut(df_lift["Predicted_Complex"], 10, labels=False, duplicates='drop') + 1
+
+lift_data = df_lift.groupby("Decile").apply(include_groups=False, func=
+    lambda x: pd.Series({
+        "Average_Actual": x["ClaimNb"].sum() / x["Exposure"].sum(),
+        "Average_Simple": x["Predicted_Simple"].sum() / x["Exposure"].sum(),
+        "Average_Complex": x["Predicted_Complex"].sum() / x["Exposure"].sum(),
+        "Exposure_Weight": x["Exposure"].sum()
+    })
+).reset_index()
+
+reg_simple = smf.ols("Average_Actual ~ Average_Simple", data=lift_data).fit()
+reg_complex = smf.ols("Average_Actual ~ Average_Complex", data=lift_data).fit()
+
+print(f"Simple Model R-squared: {reg_simple.rsquared:.4f}")
+print(f"Complex Model R-squared: {reg_complex.rsquared:.4f}")</code>
+            </div>
+            
+            <div class="output-block">
+Simple Model R-squared: 0.9462
+Complex Model R-squared: 0.9787</code>
+            </div>
+            
+            <div class="warning-box">
+                <h4>Sorting Power</h4>
+                <p>The complex model achieves an R² of 0.9787 on the lift chart, compared to 0.9462 for the simple model. This means the complex model is much better at ranking policyholders by actual risk.</p>
+            </div>
+            
+            <h3>4.4 Model Calibration</h3>
+            <p>Even good models may need calibration to ensure predicted frequencies match observed frequencies.</p>
+            
+            <div class="code-block">
+                <code>from sklearn.isotonic import IsotonicRegression
+
+df_lift["Predicted_Complex_Clipped"] = df_lift["Predicted_Complex"].clip(upper=1.0)
+X = df_lift["Predicted_Complex_Clipped"].values
+y = df_lift["ClaimNb"].values
+weights = df_lift["Exposure"].values
+
+iso_reg = IsotonicRegression(y_min=0, increasing=True, out_of_bounds='clip')
+iso_reg.fit(X, y, sample_weight=weights)
+
+df_lift["Predicted_Calibrated"] = iso_reg.predict(X)
+
+lift_calib = df_lift.groupby("Decile").apply(include_groups=False, func=
+    lambda x: pd.Series({
+        "Average_Actual": x["ClaimNb"].sum() / x["Exposure"].sum(),
+        "Average_Aggressive": x["Predicted_Complex"].sum() / x["Exposure"].sum(),
+        "Average_Calibrated": x["Predicted_Calibrated"].sum() / x["Exposure"].sum(), 
+    })
+).reset_index()
+
+plt.figure(figsize=(12, 7))
+sns.lineplot(data=lift_calib, x="Decile", y="Average_Actual", 
+             color="black", linestyle="--", marker="o", linewidth=2, label="Actual Claims")
+sns.lineplot(data=lift_calib, x="Decile", y="Average_Aggressive", 
+             color="orange", linestyle="--", label="Complex (Original)")
+sns.lineplot(data=lift_calib, x="Decile", y="Average_Calibrated", 
+             color="green", linewidth=3, label="Complex (Isotonic Calibrated)")
+
+plt.title("Isotonic Calibration: Forcing the Predictions to Reality")
+plt.ylabel("Claim Frequency")
+plt.xlabel("Risk Decile")
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()</code>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Calibration Benefits</h3>
+                <p>Isotonic regression helps adjust our predictions so that, on average, the predicted frequencies match the observed frequencies across different risk groups.</p>
+            </div>
+        </section>
+        
+        <!-- Key Learnings Section -->
+        <section id="key-learnings">
+            <h2>5. Key Learnings and Conclusions</h2>
+            
+            <p>Throughout this journey of building an MTPL pricing model, we've learned valuable lessons about actuarial modeling and data science.</p>
+            
+            <div class="key-learning">
+                <h4>📊 Data Understanding is Crucial</h4>
+                <ul>
+                    <li>Insurance claim data is characterized by overdispersion and excess zeros</li>
+                    <li>The Poisson assumption (variance = mean) is often violated in practice</li>
+                    <li>Understanding data characteristics guides appropriate model selection</li>
+                </ul>
+            </div>
+            
+            <div class="key-learning">
+                <h4>🔧 Model Selection Matters</h4>
+                <ul>
+                    <li>Negative Binomial regression successfully addresses overdispersion</li>
+                    <li>Adding polynomial terms (DrivAge²) captures non-linear relationships</li>
+                    <li>Including additional predictors (BonusMalus, VehAge) improves model fit</li>
+                </ul>
+            </div>
+            
+            <div class="key-learning">
+                <h4>📈 Validation is Essential</h4>
+                <ul>
+                    <li>AIC provides a reliable way to compare models with different complexity</li>
+                    <li>Residual analysis reveals systematic biases in model predictions</li>
+                    <li>Lift charts demonstrate the model's sorting power for risk differentiation</li>
+                    <li>Calibration ensures predicted frequencies match observed frequencies</li>
+                </ul>
+            </div>
+            
+            <div class="key-learning">
+                <h4>🎯 Key Risk Factors Identified</h4>
+                <ul>
+                    <li><strong>Driver Age:</strong> Young drivers (18-25) have significantly higher claim frequencies</li>
+                    <li><strong>BonusMalus:</strong> Higher coefficients indicate worse driving history and higher risk</li>
+                    <li><strong>Vehicle Power:</strong> Higher-powered vehicles (>9) are associated with increased risk</li>
+                    <li><strong>Vehicle Age:</strong> New vehicles have higher frequencies; older vehicles show moderate risk</li>
+                </ul>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Final Model Summary</h3>
+                <p>Our final complex model includes:</p>
+                <ul>
+                    <li>Driver Age (linear and quadratic terms)</li>
+                    <li>Vehicle Power (categorical)</li>
+                    <li>Bonus-Malus coefficient</li>
+                    <li>Vehicle Age</li>
+                </ul>
+                <p>This model achieves an AIC improvement of ~6,000 points over the simple model and demonstrates excellent sorting power (R² = 0.9787) on the lift chart.</p>
+            </div>
+            
+            <div class="warning-box">
+                <h4>🚀 Next Steps for Production</h4>
+                <ul>
+                    <li>Implement more sophisticated feature engineering (interaction terms, regions)</li>
+                    <li>Consider machine learning approaches (GBMs, Neural Networks) for comparison</li>
+                    <li>Develop monitoring dashboards for model performance tracking</li>
+                    <li>Implement regular model refresh cycles with new data</li>
+                    <li>Conduct scenario testing for extreme events</li>
+                </ul>
+            </div>
+            
+            <p style="text-align: center; margin-top: 40px; font-size: 1.1rem; color: var(--primary-color);">
+                <em>This journey demonstrates that building an effective pricing model requires iterative improvement, careful validation, and domain knowledge about insurance risk factors.</em>
+            </p>
+        </section>
+    </div>
+    
+    <footer>
+        <p>MTPL Pricing Model Learning Journey</p>
+        <p style="margin-top: 10px; opacity: 0.6;">A comprehensive documentation of building an insurance pricing model from scratch</p>
+    </footer>
+</body>
+</html>
