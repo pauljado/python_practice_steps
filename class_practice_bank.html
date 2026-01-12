@@ -1,0 +1,741 @@
+
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering Python Classes: The BankAccount Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        dark: {
+                            800: '#1e1e1e', // VS Code editor bg
+                            900: '#111827',
+                            950: '#0b0f19',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar for code blocks */
+        pre::-webkit-scrollbar {
+            height: 8px;
+        }
+        pre::-webkit-scrollbar-track {
+            background: #1e1e1e;
+        }
+        pre::-webkit-scrollbar-thumb {
+            background: #4b5563;
+            border-radius: 4px;
+        }
+        pre::-webkit-scrollbar-thumb:hover {
+            background: #6b7280;
+        }
+        .console-cursor::after {
+            content: '▋';
+            animation: blink 1s step-start infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-100 selection:text-brand-900">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center text-white font-bold">Py</div>
+                <span class="font-bold text-xl tracking-tight text-slate-900">Class<span class="text-brand-600">Mastery</span></span>
+            </div>
+            <!-- Removed Nav Links as requested -->
+            <a href="https://github.com/topics/python" target="_blank" class="px-4 py-2 bg-slate-900 text-white text-sm font-medium rounded-full hover:bg-slate-700 transition-all">
+                Get Started
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 grid grid-cols-1 lg:grid-cols-12 gap-12">
+
+        <!-- Sidebar Navigation (Desktop) -->
+        <aside class="hidden lg:block lg:col-span-3 sticky top-24 h-[calc(100vh-8rem)] overflow-y-auto pr-4">
+            <div class="space-y-8">
+                <div>
+                    <h3 class="font-bold text-slate-900 mb-3 uppercase tracking-wider text-xs">Modules</h3>
+                    <ul class="space-y-2 border-l-2 border-slate-200 ml-1">
+                        <li><a href="#blueprint" class="block pl-4 py-1 text-sm text-brand-600 font-medium border-l-2 border-brand-600 -ml-[2px]">1. The Blueprint</a></li>
+                        <li><a href="#encapsulation" class="block pl-4 py-1 text-sm text-slate-600 hover:text-slate-900 hover:border-slate-300 border-l-2 border-transparent -ml-[2px] transition-all">2. Encapsulation</a></li>
+                        <li><a href="#methods" class="block pl-4 py-1 text-sm text-slate-600 hover:text-slate-900 hover:border-slate-300 border-l-2 border-transparent -ml-[2px] transition-all">3. Silent Mode</a></li>
+                        <li><a href="#logic" class="block pl-4 py-1 text-sm text-slate-600 hover:text-slate-900 hover:border-slate-300 border-l-2 border-transparent -ml-[2px] transition-all">4. Execution Trap</a></li>
+                        <li><a href="#security" class="block pl-4 py-1 text-sm text-slate-600 hover:text-slate-900 hover:border-slate-300 border-l-2 border-transparent -ml-[2px] transition-all">5. Security</a></li>
+                        <li><a href="#scaling" class="block pl-4 py-1 text-sm text-slate-600 hover:text-slate-900 hover:border-slate-300 border-l-2 border-transparent -ml-[2px] transition-all">6. Scaling</a></li>
+                    </ul>
+                </div>
+                <!-- Removed Interactive Guide Box as requested -->
+            </div>
+        </aside>
+
+        <!-- Content Area -->
+        <div class="lg:col-span-9 space-y-24">
+
+            <!-- Hero Section -->
+            <section class="text-center lg:text-left py-10">
+                <h1 class="text-4xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
+                    Mastering <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-indigo-600">Python Classes</span>
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    A deep dive into Object-Oriented Programming using a robust <code class="bg-slate-100 px-2 py-1 rounded text-brand-600 font-mono text-base">BankAccount</code> project. Learn encapsulation, silent modes, and logic traps step-by-step.
+                </p>
+            </section>
+
+            <!-- 1. The Blueprint -->
+            <section id="blueprint" class="scroll-mt-24 group">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-100 text-brand-600 font-bold text-sm">1</span>
+                    <h2 class="text-2xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">The Blueprint & Automatic Registration</h2>
+                </div>
+                
+                <div class="prose prose-slate max-w-none text-slate-600 mb-8">
+                    <p class="text-lg leading-relaxed mb-6">
+                        In Object-Oriented Programming (OOP), the class is the <strong>Blueprint</strong>, and the object is the <strong>House</strong> built from that blueprint. A common challenge in managing large systems is keeping track of all the "houses" you've built.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                            <h4 class="font-bold text-slate-900 mb-2">Class Attributes vs. Instance Attributes</h4>
+                            <p class="text-sm">
+                                <code class="text-pink-600 font-bold">all_accounts = []</code> is defined outside `__init__`. This is a <strong>Class Variable</strong>. It belongs to the blueprint itself. There is only ONE list in the entire universe of your program, shared by every bank account.
+                            </p>
+                            <p class="text-sm mt-2">
+                                <code class="text-brand-600 font-bold">self.account_number</code> is defined inside `__init__`. This is an <strong>Instance Variable</strong>. Every account has its own unique number.
+                            </p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm">
+                            <h4 class="font-bold text-slate-900 mb-2">The "Registry" Pattern</h4>
+                            <p class="text-sm">
+                                Typically, when you create an object in a function or loop and don't save it to a variable, Python's Garbage Collector deletes it. 
+                            </p>
+                            <p class="text-sm mt-2">
+                                By writing <code class="bg-slate-100 px-1 rounded">BankAccount.all_accounts.append(self)</code> inside the <code class="font-mono">__init__</code> constructor, the object essentially "registers itself" before it finishes being created. This creates a permanent reference, ensuring the object survives even if you don't assign it to a variable immediately.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="text-sm text-slate-500 italic border-l-4 border-brand-200 pl-4 py-1">
+                        <strong>Analogy:</strong> Think of a car factory. The factory (Class) keeps a ledger (Class List) of every serial number it produces. The car (Instance) has its own color and speed. Even if the car drives away, the factory still has its record in the ledger.
+                    </p>
+                </div>
+
+                <!-- Definition Code -->
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-dark-800 border border-slate-800 mb-8">
+                    <div class="flex items-center justify-between px-4 py-2 bg-dark-900 border-b border-slate-700">
+                        <span class="text-xs text-slate-400 font-mono">bank_account.py</span>
+                    </div>
+<pre><code class="language-python">class BankAccount:
+    all_accounts = [] # Class Variable (The Ledger)
+
+    def __init__(self, account_number, balance):
+        # Instance Variables (The Unique Data)
+        self.account_number = account_number
+        self.__balance = balance
+        
+        # Automatic Registration
+        # 'self' refers to the specific object currently being born
+        BankAccount.all_accounts.append(self)
+        print(f"--- System: Account {self.account_number} initialized. ---")</code></pre>
+                </div>
+
+                <!-- Interactive Demo -->
+                <div class="bg-slate-900 rounded-xl p-1 shadow-lg ring-1 ring-slate-900/5">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/50 rounded-t-lg">
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Live Execution</span>
+                        <button onclick="runDemo('blueprint')" class="flex items-center gap-2 px-3 py-1 bg-green-600 hover:bg-green-500 text-white text-xs font-bold rounded transition-colors">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            Run Code
+                        </button>
+                    </div>
+                    <div class="p-4 bg-dark-950 font-mono text-sm text-slate-300 border-b border-slate-800">
+<pre class="!bg-transparent !p-0 !m-0"><code class="language-python"># Creating instances
+acc1 = BankAccount("Acct-101", 1000)
+acc2 = BankAccount("Acct-102", 500)
+
+# Even though we didn't explicitly add them to the list, they are there.
+print(f"Total Accounts in Registry: {len(BankAccount.all_accounts)}")</code></pre>
+                    </div>
+                    <div id="console-blueprint" class="hidden p-4 bg-black font-mono text-xs text-green-400 border-t border-slate-800 console-cursor"></div>
+                </div>
+            </section>
+
+            <!-- 2. Encapsulation -->
+            <section id="encapsulation" class="scroll-mt-24 group">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-100 text-brand-600 font-bold text-sm">2</span>
+                    <h2 class="text-2xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Encapsulation & Access Control</h2>
+                </div>
+
+                <div class="prose prose-slate max-w-none text-slate-600 mb-8">
+                    <p class="mb-4">
+                        <strong>Encapsulation</strong> is the practice of hiding the internal state of an object and requiring all interaction to happen through an "interface" (methods). This protects the data from corruption.
+                    </p>
+
+                    <div class="space-y-4 mb-6">
+                        <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100">
+                            <h4 class="font-bold text-indigo-900 text-sm mb-1">Double Underscore (Name Mangling)</h4>
+                            <p class="text-sm text-indigo-800">
+                                When you name a variable <code class="font-mono">self.__balance</code>, Python internally renames it to <code class="font-mono">_BankAccount__balance</code>. This makes it difficult (though not impossible) to access it from outside. If you try to access <code class="font-mono">acc.__balance</code> directly, Python will raise an error, pretending the variable doesn't exist.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">The @property Decorator</h4>
+                            <p class="text-sm text-slate-600">
+                                This allows us to expose <code class="font-mono">__balance</code> in a read-only format. It transforms a method <code class="font-mono">balance()</code> into what looks like a variable <code class="font-mono">acc.balance</code>. This is Pythonic: it looks like simple data access, but it's actually running code.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border border-slate-200">
+                            <h4 class="font-bold text-slate-900 text-sm mb-1">Dunder Methods (__str__)</h4>
+                            <p class="text-sm text-slate-600">
+                                "Dunder" stands for "Double Underscore". <code class="font-mono">__str__</code> is a special method. When you call <code class="font-mono">print(account)</code>, Python looks for this method to decide what text to show. Without it, you would just get a memory address like <code class="text-xs bg-slate-100 p-0.5 rounded">&lt;__main__.BankAccount object at 0x7f...&gt;</code>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code -->
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-dark-800 border border-slate-800 mb-8">
+<pre><code class="language-python">    @property
+    def balance(self):
+        """Getter: Allows reading the private __balance."""
+        # We return the value, but the user cannot change it 
+        # because this is a read-only property (no setter yet).
+        return self.__balance
+
+    def __str__(self):
+        # Defines the "String Representation" of the object
+        return f"Acct: {self.account_number} | Bal: ${self.__balance}"</code></pre>
+                </div>
+
+                <!-- Interactive Demo -->
+                <div class="bg-slate-900 rounded-xl p-1 shadow-lg ring-1 ring-slate-900/5">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/50 rounded-t-lg">
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Live Execution</span>
+                        <button onclick="runDemo('encapsulation')" class="flex items-center gap-2 px-3 py-1 bg-green-600 hover:bg-green-500 text-white text-xs font-bold rounded transition-colors">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            Run Code
+                        </button>
+                    </div>
+                    <div class="p-4 bg-dark-950 font-mono text-sm text-slate-300 border-b border-slate-800">
+<pre class="!bg-transparent !p-0 !m-0"><code class="language-python">acc = BankAccount("Safe-1", 5000)
+
+# 1. Correct Access (Property)
+print(f"Balance is: {acc.balance}")
+
+# 2. String Representation (__str__)
+print(acc)
+
+# 3. Forbidden Access (Will Error)
+# This proves that __balance is hidden from the public interface
+try:
+    print(acc.__balance)
+except AttributeError as e:
+    print(f"Error caught: {e}")</code></pre>
+                    </div>
+                    <div id="console-encapsulation" class="hidden p-4 bg-black font-mono text-xs text-green-400 border-t border-slate-800 console-cursor"></div>
+                </div>
+            </section>
+
+            <!-- 3. Silent Mode -->
+            <section id="methods" class="scroll-mt-24 group">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-100 text-brand-600 font-bold text-sm">3</span>
+                    <h2 class="text-2xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">API Design: The "Silent Mode" Pattern</h2>
+                </div>
+
+                <div class="prose prose-slate max-w-none text-slate-600 mb-8">
+                    <p class="mb-4">
+                        When designing an Application Programming Interface (API) for your classes, you often face a conflict:
+                        <ul class="list-disc pl-5 mb-4">
+                            <li><strong>Scenario A (User Interaction):</strong> A user deposits money at an ATM. They expect a beep, a screen update, and a printed receipt.</li>
+                            <li><strong>Scenario B (Background Process):</strong> An automated system processes 1,000 monthly interest payments. You do <em>not</em> want 1,000 print statements flooding your console.</li>
+                        </ul>
+                    </p>
+
+                    <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-4">
+                        <h4 class="font-bold text-amber-900 text-sm">The DRY Principle (Don't Repeat Yourself)</h4>
+                        <p class="text-sm text-amber-800 mt-1">
+                            A novice might write two methods: <code class="font-mono">deposit()</code> and <code class="font-mono">deposit_quietly()</code>. This is bad practice because you have to duplicate the math logic (balance += amount) in both places. If the math changes, you have to fix it twice.
+                        </p>
+                    </div>
+
+                    <p class="text-sm">
+                        <strong>The Solution:</strong> Use an optional argument <code class="bg-slate-100 px-1 rounded font-mono">silent=False</code>. This acts as a switch. By defaulting it to <code class="font-mono">False</code>, you preserve the standard behavior (printing) for normal use, but allow power-users (or other methods) to suppress output by passing <code class="font-mono">True</code>.
+                    </p>
+                </div>
+
+                <!-- Code -->
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-dark-800 border border-slate-800 mb-8">
+<pre><code class="language-python">    # 3. SILENT MODE PATTERN
+    def deposit(self, amount, silent=False):
+        # 1. Validation Logic (Shared by both modes)
+        if amount < 0:
+            print("Only positive amounts can be deposited")
+            return
+
+        # 2. Mathematical Logic (Shared by both modes)
+        self.__balance += amount
+
+        # 3. Feedback Logic (Conditional)
+        if not silent:
+            print(f"Successfully deposited: ${amount}")</code></pre>
+                </div>
+
+                <!-- Interactive Demo -->
+                <div class="bg-slate-900 rounded-xl p-1 shadow-lg ring-1 ring-slate-900/5">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/50 rounded-t-lg">
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Live Execution</span>
+                        <button onclick="runDemo('silent')" class="flex items-center gap-2 px-3 py-1 bg-green-600 hover:bg-green-500 text-white text-xs font-bold rounded transition-colors">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            Run Code
+                        </button>
+                    </div>
+                    <div class="p-4 bg-dark-950 font-mono text-sm text-slate-300 border-b border-slate-800">
+<pre class="!bg-transparent !p-0 !m-0"><code class="language-python">acc = BankAccount("Test-Silent", 0)
+
+print("1. Manual Deposit (Default/Loud):")
+acc.deposit(500) 
+
+print("\n2. Automated Deposit (Explicit/Silent):")
+# Perfect for loops or background tasks
+acc.deposit(500, silent=True) 
+
+print(f"\nFinal Balance: ${acc.balance}")</code></pre>
+                    </div>
+                    <div id="console-silent" class="hidden p-4 bg-black font-mono text-xs text-green-400 border-t border-slate-800 console-cursor"></div>
+                </div>
+            </section>
+
+            <!-- 4. Logic Interaction -->
+            <section id="logic" class="scroll-mt-24 group">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-100 text-brand-600 font-bold text-sm">4</span>
+                    <h2 class="text-2xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Method Chaining & "The Execution Trap"</h2>
+                </div>
+
+                <div class="prose prose-slate max-w-none text-slate-600 mb-8">
+                    <p class="mb-4">
+                        This section demonstrates <strong>Composition</strong>: building complex behaviors (Transfer) by combining simpler behaviors (Withdraw + Deposit). However, it introduces a dangerous logic trap known as <em>Side Effects in Conditionals</em>.
+                    </p>
+
+                    <div class="flex flex-col md:flex-row gap-6 mb-6">
+                        <div class="flex-1 bg-red-50 p-5 rounded-lg border border-red-100">
+                            <h4 class="font-bold text-red-900 text-sm mb-2">The Execution Trap</h4>
+                            <p class="text-sm text-red-800 mb-2">
+                                Look closely at this line: <br>
+                                <code class="bg-white px-1 rounded font-mono border border-red-200">if self.withdraw(amount):</code>
+                            </p>
+                            <p class="text-xs text-red-700">
+                                Many beginners think this just "checks" if withdrawal is possible. <strong>It does not.</strong> To determine if the statement is True or False, Python <strong>executes</strong> the function right there. The money is gone the moment that line runs.
+                            </p>
+                        </div>
+                        <div class="flex-1 bg-emerald-50 p-5 rounded-lg border border-emerald-100">
+                            <h4 class="font-bold text-emerald-900 text-sm mb-2">The "Double Deduction" Bug</h4>
+                            <p class="text-sm text-emerald-800 mb-2">
+                                If you subtract the money inside <code class="font-mono">transfer</code> <em>after</em> calling <code class="font-mono">withdraw</code>, you will charge the customer twice!
+                            </p>
+                            <p class="text-xs text-emerald-700">
+                                <strong>Correct Pattern:</strong> Trust the <code class="font-mono">withdraw</code> method to handle the math. Use its return value (True/False) <em>only</em> to decide whether to give money to the recipient.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p class="text-sm italic text-slate-500">
+                        <strong>Analogy:</strong> Imagine a conditional check: <code class="font-mono">if jump_over_cliff():</code>. You cannot check if you successfully jumped over the cliff without actually jumping. If you land, it returns True. If you fall, it returns False. But either way, the jump happened.
+                    </p>
+                </div>
+
+                <!-- Code -->
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-dark-800 border border-slate-800 mb-8">
+<pre><code class="language-python">    # 4. METHOD COMPOSITION
+    def transfer(self, recipient, amount):
+        # TRAP: This executes withdrawal immediately.
+        # We rely on withdraw() returning True (success) or False (fail).
+        
+        if self.withdraw(amount, silent=True):
+            # If we are inside this block, the money is ALREADY gone from 'self'.
+            # So we strictly deposit to the recipient.
+            recipient.deposit(amount, silent=True)
+            print(f"Transferred ${amount}")
+        else:
+            # If withdraw failed (insufficient funds), it returned False.
+            # We skip the deposit. The transaction is aborted safeley.
+            print("Insufficient funds")</code></pre>
+                </div>
+
+                 <!-- Interactive Demo -->
+                 <div class="bg-slate-900 rounded-xl p-1 shadow-lg ring-1 ring-slate-900/5">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/50 rounded-t-lg">
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Live Execution</span>
+                        <button onclick="runDemo('logic')" class="flex items-center gap-2 px-3 py-1 bg-green-600 hover:bg-green-500 text-white text-xs font-bold rounded transition-colors">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            Run Code
+                        </button>
+                    </div>
+                    <div class="p-4 bg-dark-950 font-mono text-sm text-slate-300 border-b border-slate-800">
+<pre class="!bg-transparent !p-0 !m-0"><code class="language-python"># Setup
+sender = BankAccount("Sender", 100)
+receiver = BankAccount("Receiver", 0)
+
+print("--- Attempting Valid Transfer ---")
+# This runs withdraw(), subtracts 100, returns True, then deposits 100.
+sender.transfer(receiver, 100)
+
+print(f"\nSender Left: ${sender.balance}")
+print(f"Receiver Has: ${receiver.balance}")
+
+print("\n--- Attempting Invalid Transfer ---")
+# This runs withdraw(), sees low balance, returns False. 
+# Receiver gets nothing. Sender loses nothing.
+sender.transfer(receiver, 50) </code></pre>
+                    </div>
+                    <div id="console-logic" class="hidden p-4 bg-black font-mono text-xs text-green-400 border-t border-slate-800 console-cursor"></div>
+                </div>
+            </section>
+
+            <!-- 5. Security -->
+            <section id="security" class="scroll-mt-24 group">
+                 <div class="flex items-center gap-3 mb-6">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-100 text-brand-600 font-bold text-sm">5</span>
+                    <h2 class="text-2xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Security, Scope, and Setter Limitations</h2>
+                </div>
+
+                <div class="prose prose-slate max-w-none text-slate-600 mb-8">
+                    <p class="mb-4">
+                        The <code class="font-mono">@property.setter</code> allows you to intercept a value assignment. Instead of simply writing <code class="font-mono">acc.balance = 500</code>, Python runs your method. This is the perfect place for validation and security checks.
+                    </p>
+
+                    <div class="bg-purple-50 p-5 rounded-lg border border-purple-100 mb-4">
+                        <h4 class="font-bold text-purple-900 text-sm mb-2">The Setter Limitation</h4>
+                        <p class="text-sm text-purple-800 mb-2">
+                            A Python setter is syntactically strict. It must look like <code class="font-mono">def balance(self, value):</code>. It can only accept <strong>one</strong> argument: the new value.
+                        </p>
+                        <p class="text-xs font-mono text-purple-700 bg-white/50 p-2 rounded">
+                            # IMPOSSIBLE IN PYTHON PROPERTIES:<br>
+                            acc.balance = 500, user="admin" <br>
+                            # This syntax does not exist.
+                        </p>
+                    </div>
+
+                    <p class="text-sm mb-4">
+                        <strong>The Workaround (Scope):</strong> Because we cannot pass the admin status as an argument to the setter, the method must look <em>outside</em> itself to find that information. In this educational example, we check a global variable <code class="font-mono">admin</code>. 
+                    </p>
+                    <p class="text-xs text-slate-500 italic">
+                        <strong>Note:</strong> In production web apps (like Django or Flask), you wouldn't use a global variable. You would likely use a "Thread Local" storage or pass the "User" object to a dedicated method like <code class="font-mono">update_balance_admin(user, amount)</code> instead of using a property setter.
+                    </p>
+                </div>
+
+                <!-- Code -->
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-dark-800 border border-slate-800 mb-8">
+<pre><code class="language-python">    # 5. SETTERS: Controls updates
+    @balance.setter
+    def balance(self, amount):
+        # We access 'admin' from the global scope (outside the class)
+        # This allows us to enforce permissions on a simple assignment.
+        if admin:
+            self.__balance = amount
+        else:
+            print("Access Denied: You are not an admin")</code></pre>
+                </div>
+
+                <!-- Interactive Demo -->
+                <div class="bg-slate-900 rounded-xl p-1 shadow-lg ring-1 ring-slate-900/5">
+                    <div class="flex items-center justify-between px-4 py-2 bg-slate-800/50 rounded-t-lg">
+                        <span class="text-xs font-bold text-brand-400 uppercase tracking-widest">Live Execution</span>
+                        <button onclick="runDemo('security')" class="flex items-center gap-2 px-3 py-1 bg-green-600 hover:bg-green-500 text-white text-xs font-bold rounded transition-colors">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            Run Code
+                        </button>
+                    </div>
+                    <div class="p-4 bg-dark-950 font-mono text-sm text-slate-300 border-b border-slate-800">
+<pre class="!bg-transparent !p-0 !m-0"><code class="language-python">hack_acc = BankAccount("Hacker", 0)
+global admin # This exists outside the class
+
+print("1. Trying without admin privileges...")
+admin = False
+# This triggers the setter method!
+hack_acc.balance = 999999 
+
+print("\n2. Trying WITH admin privileges...")
+admin = True
+hack_acc.balance = 999999 # Succeeds
+print(f"New Balance: ${hack_acc.balance}")</code></pre>
+                    </div>
+                    <div id="console-security" class="hidden p-4 bg-black font-mono text-xs text-green-400 border-t border-slate-800 console-cursor"></div>
+                </div>
+            </section>
+
+             <!-- 6. Scaling -->
+             <section id="scaling" class="scroll-mt-24 group pb-20 border-b border-slate-200">
+                <div class="flex items-center gap-3 mb-6">
+                   <span class="flex items-center justify-center w-8 h-8 rounded-full bg-brand-100 text-brand-600 font-bold text-sm">6</span>
+                   <h2 class="text-2xl font-bold text-slate-900 group-hover:text-brand-600 transition-colors">Scaling to 100+ Accounts</h2>
+               </div>
+
+               <div class="bg-gradient-to-br from-brand-600 to-indigo-700 rounded-2xl p-8 text-white shadow-xl mb-8">
+                   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                       <div>
+                           <h3 class="text-2xl font-bold mb-4">Persistence in Loops</h3>
+                           <p class="text-brand-100 mb-6 text-sm leading-relaxed">
+                               This demonstrates the true power of the <strong>Blueprint</strong> pattern. We can use a loop to generate massive amounts of data instantly.
+                           </p>
+                           <p class="text-brand-100 mb-6 text-sm leading-relaxed">
+                               Normally, if you write <code class="bg-white/20 px-1 rounded">x = Object()</code> inside a loop, the variable <code class="font-mono">x</code> is overwritten every iteration, and the previous object is deleted from memory. 
+                               <br><br>
+                               However, because our <code class="font-mono">__init__</code> appends every new object to <code class="font-mono">BankAccount.all_accounts</code>, the "Factory" holds onto the object. The objects survive even after the loop finishes.
+                           </p>
+                           <!-- Interactive Demo for Scaling -->
+                           <div class="bg-black/30 rounded-lg p-4 backdrop-blur-sm border border-white/10">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-brand-200">Mass Generation</span>
+                                    <button onclick="runDemo('scaling')" class="px-2 py-1 bg-white text-brand-900 text-xs font-bold rounded hover:bg-brand-50 transition-colors">Run Loop</button>
+                                </div>
+<pre class="!bg-transparent !p-0 !m-0 text-xs"><code class="language-python text-brand-50"># Generates 100 unique objects in milliseconds
+for i in range(100):
+    # This variable 'acc' is temporary...
+    acc = BankAccount(f"Acc-{i}", 500)
+    # ...but the object persists in the class list.</code></pre>
+                                <div id="console-scaling" class="hidden mt-3 pt-3 border-t border-white/10 text-xs font-mono text-green-300"></div>
+                           </div>
+                       </div>
+                       <div class="flex flex-col gap-4">
+                           <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm text-center">
+                               <div id="counter-display" class="text-4xl font-bold">0</div>
+                               <div class="text-xs text-brand-200 uppercase tracking-wider">Active Instances</div>
+                           </div>
+                           <div class="bg-white/10 p-4 rounded-xl backdrop-blur-sm">
+                                <h5 class="font-bold text-xs uppercase tracking-wider text-brand-200 mb-2">Memory Visualization</h5>
+                                <div class="space-y-1 text-xs font-mono text-brand-100 opacity-75">
+                                    <div>[0] &lt;BankAccount Acc-0&gt;</div>
+                                    <div>[1] &lt;BankAccount Acc-1&gt;</div>
+                                    <div>[2] &lt;BankAccount Acc-2&gt;</div>
+                                    <div>...</div>
+                                    <div>[99] &lt;BankAccount Acc-99&gt;</div>
+                                </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-50 border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-400 text-sm">
+            <p>Generated based on your Python Notebook structure.</p>
+        </div>
+    </footer>
+
+    <!-- Syntax Highlighting Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <!-- JS MOCK ENGINE -->
+    <script>
+        // --- Python Engine Mock ---
+        // This simulates the Python Logic in JavaScript so the buttons actually work.
+        
+        let admin = false;
+        
+        class BankAccount {
+            static all_accounts = [];
+
+            constructor(account_number, balance) {
+                this.account_number = account_number;
+                this._balance = balance;
+                BankAccount.all_accounts.push(this);
+            }
+
+            get balance() {
+                return this._balance;
+            }
+
+            set balance(amount) {
+                if (admin) {
+                    this._balance = amount;
+                } else {
+                    throw new Error("You are not an admin");
+                }
+            }
+
+            deposit(amount, silent=false) {
+                if (amount < 0) return "Only positive amounts can be deposited";
+                this._balance += amount;
+                if (!silent) return `Successfully deposited: $${amount}`;
+                return null;
+            }
+
+            withdraw(amount, silent=false) {
+                if (amount < 0) return false;
+                if (this._balance >= amount) {
+                    this._balance -= amount;
+                    if (!silent) return `Successfully withdrawn: $${amount}`;
+                    return true;
+                }
+                if(!silent) return "Insufficient funds";
+                return false; // implicit return false on fail
+            }
+
+            transfer(recipient, amount) {
+                let logs = [];
+                // TRAP LOGIC simulation
+                if (this.withdraw(amount, true)) {
+                    recipient.deposit(amount, true);
+                    logs.push(`Transferred $${amount}`);
+                } else {
+                    logs.push("Insufficient funds");
+                }
+                return logs;
+            }
+        }
+
+        // --- Demo Runner Logic ---
+        function typeWriter(elementId, text) {
+            const el = document.getElementById(elementId);
+            el.classList.remove('hidden');
+            el.innerHTML = '';
+            let i = 0;
+            const lines = text.split('\n');
+            
+            // Simple instant render for clearer reading, or typewriter? 
+            // Let's do instant for responsiveness but with a flash
+            el.innerText = text;
+            el.classList.add('animate-pulse');
+            setTimeout(() => el.classList.remove('animate-pulse'), 200);
+        }
+
+        function runDemo(type) {
+            let output = "";
+            
+            // Reset state for cleaner demos per run (optional, but good for repeatability)
+            // But we want to show accumulation usually. Let's create fresh instances for demos.
+
+            if (type === 'blueprint') {
+                BankAccount.all_accounts = []; // clear for demo
+                const a1 = new BankAccount("Acct-101", 1000);
+                output += `--- System: Account ${a1.account_number} initialized. ---\n`;
+                const a2 = new BankAccount("Acct-102", 500);
+                output += `--- System: Account ${a2.account_number} initialized. ---\n`;
+                output += `\nTotal Accounts in Registry: ${BankAccount.all_accounts.length}`;
+                typeWriter('console-blueprint', output);
+            }
+
+            if (type === 'encapsulation') {
+                const acc = new BankAccount("Safe-1", 5000);
+                output += `Balance is: ${acc.balance}\n`;
+                output += `Acct: Safe-1 | Bal: $5000\n`;
+                output += `Error caught: 'BankAccount' object has no attribute '__balance'`;
+                typeWriter('console-encapsulation', output);
+            }
+
+            if (type === 'silent') {
+                const acc = new BankAccount("Test-Silent", 0);
+                output += "1. Manual Deposit (Default/Loud):\n";
+                output += acc.deposit(500) + "\n\n";
+                output += "2. Automated Deposit (Explicit/Silent):\n";
+                acc.deposit(500, true); // returns null
+                output += "(No Output)\n";
+                output += `\nFinal Balance: $${acc.balance}`;
+                typeWriter('console-silent', output);
+            }
+
+            if (type === 'logic') {
+                const s = new BankAccount("Sender", 100);
+                const r = new BankAccount("Receiver", 0);
+                output += "--- Attempting Valid Transfer ---\n";
+                output += s.transfer(r, 100).join('\n') + "\n";
+                output += `\nSender Left: $${s.balance}\n`;
+                output += `Receiver Has: $${r.balance}\n`;
+                output += "\n--- Attempting Invalid Transfer ---\n";
+                const res = s.transfer(r, 50);
+                output += res.length > 0 ? res.join('\n') : "Insufficient funds";
+                typeWriter('console-logic', output);
+            }
+
+            if (type === 'security') {
+                const h = new BankAccount("Hacker", 0);
+                output += "1. Trying without admin privileges...\n";
+                admin = false;
+                try {
+                    h.balance = 999;
+                } catch(e) {
+                    output += "Access Denied: You are not an admin\n";
+                }
+
+                output += "\n2. Trying WITH admin privileges...\n";
+                admin = true;
+                h.balance = 999999;
+                output += `New Balance: $${h.balance}`;
+                typeWriter('console-security', output);
+            }
+
+            if (type === 'scaling') {
+                BankAccount.all_accounts = [];
+                for(let i=0; i<100; i++) {
+                    new BankAccount(`Acc-${i}`, 500);
+                }
+                output += `Successfully created ${BankAccount.all_accounts.length} unique instances.\n`;
+                output += `Sample: ${BankAccount.all_accounts[42].account_number}`;
+                typeWriter('console-scaling', output);
+                
+                // Update the big counter
+                document.getElementById('counter-display').innerText = BankAccount.all_accounts.length;
+            }
+        }
+    </script>
+
+    <script>
+        // Simple sidebar active state highlight on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('aside ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-brand-600', 'font-medium', 'border-brand-600');
+                link.classList.add('text-slate-600', 'border-transparent');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('text-brand-600', 'font-medium', 'border-brand-600');
+                    link.classList.remove('text-slate-600', 'border-transparent');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
