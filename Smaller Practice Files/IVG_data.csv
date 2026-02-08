@@ -1,114 +1,114 @@
-Ticker,Company,Market Value,Weighting,Type,YTD,YOY,Category Logic
-MSFT,MICROSOFT CORP,"$637,689,892.53",9.70,1,#N/A,#N/A,"OS, Office, Teams. The primary interface for global work."
-PLTR,PALANTIR TECHNOLOGIES INC CLASS A,"$536,384,467.17",8.16,1,#N/A,16.50%,Foundry/Gotham. Analysts use these dashboards for intel/decisions.
-CRM,SALESFORCE INC,"$506,098,317.12",7.70,1,-27.77%,-41.52%,CRM. Salespeople input/track data via UI manually.
-ORCL,ORACLE CORP,"$474,470,126.88",7.22,1,#N/A,-20.18%,ERP/HCM. Back-office applications used by HR/Finance staff.
-INTU,INTUIT INC,"$339,387,237.42",5.16,1,-33.01%,-24.38%,TurboTax/QuickBooks. Visual financial tools for consumers/SMBs.
-ADBE,ADOBE INC,"$321,491,911.73",4.89,1,-23.32%,-40.51%,Creative Cloud. Designers stare at this UI all day.
-PANW,PALO ALTO NETWORKS INC,"$301,777,510.65",4.59,2,-13.51%,-18.88%,Firewalls/Security. Network layer protection; low human interaction.
-APP,APPLOVIN CORP CLASS A,"$284,234,848.85",4.32,2,-39.64%,5.81%,"AdTech/Algorithms. Automated mediation engines; no ""user""."
-CRWD,CROWDSTRIKE HOLDINGS INC CLASS A,"$269,776,136.28",4.10,2,-15.63%,-7.79%,"Endpoint Security. Background agent; ""set and forget""."
-NOW,SERVICENOW INC,"$246,737,914.50",3.75,1,-34.24%,-50.70%,ITSM. IT staff manage tickets and workflows via dashboard.
-SNPS,SYNOPSYS INC,"$217,360,815.20",3.31,1,-9.12%,-19.66%,EDA. Engineers use this interface to design silicon chips.
-CDNS,CADENCE DESIGN SYSTEMS INC,"$209,612,431.60",3.19,1,-9.30%,-7.23%,EDA. Visual workspace for electronic design.
-ADSK,AUTODESK INC,"$144,560,982.76",2.20,1,-18.79%,-21.18%,CAD/Revit. Architects/Engineers click to draw 3D models.
-FTNT,FORTINET INC,"$142,212,127.50",2.16,2,4.22%,-24.45%,Firewalls/Security. Infrastructure hardware/software.
-EA,ELECTRONIC ARTS INC,"$126,702,118.48",1.93,1,-2.12%,51.41%,Video Games. Pure visual entertainment for humans.
-ROP,ROPER TECHNOLOGIES INC,"$107,713,125.00",1.64,2,-18.58%,-36.92%,Industrial/Backend. Automated controls and vertical software.
-DDOG,DATADOG INC CLASS A,"$99,018,544.04",1.51,2,-17.87%,-24.07%,Observability. Monitoring servers/logs; automated alerting.
-WDAY,WORKDAY INC CLASS A,"$98,194,647.60",1.49,1,-24.15%,-39.63%,HCM/Finance. Corporate dashboard for employee management.
-TTWO,TAKE TWO INTERACTIVE SOFTWARE INC,"$95,688,583.20",1.46,1,-23.61%,-7.96%,Video Games (GTA). Human entertainment interface.
-FICO,FAIR ISAAC CORP,"$91,761,613.36",1.40,2,-17.72%,-25.11%,"Scoring/Decisioning. Value is the ""Score"" (API), not the UI."
-MSTR,STRATEGY INC CLASS A,"$81,652,307.23",1.24,1,-11.20%,-59.68%,"BI Dashboards. (Note: Stock moves on Bitcoin, not software)."
-ZM,ZOOM COMMUNICATIONS INC CLASS A,"$67,679,509.88",1.03,1,6.85%,5.86%,Video Conferencing. Human-to-human visual connection.
-PTC,PTC INC,"$52,591,907.66",0.80,1,-10.61%,-7.54%,CAD/PLM. Industrial design software for engineers.
-ZS,ZSCALER INC,"$48,892,390.82",0.74,2,-25.60%,-21.27%,Security Service Edge. Network traffic filtering infrastructure.
-TEAM,ATLASSIAN CORP CLASS A,"$47,115,755.70",0.72,1,-41.58%,-70.67%,Jira/Confluence. Project management UI for developers.
-TRMB,TRIMBLE INC,"$43,346,258.06",0.66,1,-15.57%,-11.04%,Industrial UI. GPS/Construction hardware-software interface.
-TYL,TYLER TECHNOLOGIES INC,"$41,761,144.62",0.64,1,-23.26%,-43.06%,GovTech. Courts/Public sector management UI.
-GEN,GEN DIGITAL INC,"$35,909,981.40",0.55,2,-10.81%,-13.76%,Consumer Security. Background AV/Identity protection.
-HUBS,HUBSPOT INC,"$33,329,287.19",0.51,1,-42.04%,-71.13%,CRM/Marketing. Marketers use this UI for campaigns.
-GWRE,GUIDEWIRE SOFTWARE INC,"$30,560,008.41",0.46,1,-36.23%,-41.23%,P&C Insurance. Claims/Policy management UI.
-NTNX,NUTANIX INC CLASS A,"$29,653,050.24",0.45,2,-22.11%,-43.89%,HCI/Cloud Infra. Backend infrastructure management.
-DT,DYNATRACE INC,"$28,783,731.42",0.44,2,-22.22%,-44.93%,Observability. Automated app performance monitoring.
-DOCU,DOCUSIGN INC,"$26,138,684.88",0.40,1,-31.10%,-48.13%,eSignature. Humans click to sign documents.
-CFLT,CONFLUENT INC CLASS A,"$25,863,775.08",0.39,2,1.09%,-2.83%,Data Streaming. Kafka APIs; plumbing for real-time data.
-IDCC,INTERDIGITAL INC,"$25,233,851.55",0.38,2,16.55%,79.22%,"R&D/Licensing. Value is IP/Patents, not user software."
-IOT,SAMSARA INC CLASS A,"$24,117,013.00",0.37,2,-28.29%,-53.80%,IoT/Telematics. Sensors feed data; heavy hardware/API component.
-MANH,MANHATTAN ASSOCIATES INC,"$23,759,546.16",0.36,1,-16.29%,-18.36%,Supply Chain. Warehouse management UI for logistics staff.
-U,UNITY SOFTWARE INC,"$22,617,680.80",0.34,1,-43.15%,23.09%,3D Engine. Developers work in this UI to build games.
-RBRK,RUBRIK INC CLASS A,"$19,603,368.54",0.30,2,-33.22%,-33.64%,Zero Trust Data Security. Backup/Recovery infrastructure.
-CWAN,CLEARWATER ANALYTICS HOLDINGS INC,"$19,299,526.88",0.29,1,-1.12%,-15.12%,Accounting/Compliance. Financial reporting UI.
-PCOR,PROCORE TECHNOLOGIES INC,"$17,605,548.57",0.27,1,-29.49%,-32.78%,Construction. Project management UI for builders.
-QBTS,D WAVE QUANTUM INC,"$16,960,300.11",0.26,2,-20.76%,255.40%,Quantum Computing. Cloud access to quantum processors (API).
-DSGX,DESCARTES SYSTEMS GROUP INC,"$16,659,119.76",0.25,1,-23.82%,-45.49%,Logistics. Supply chain visibility UI.
-SNAP,SNAP INC CLASS A,"$16,417,955.84",0.25,1,-35.32%,-51.26%,Social Media. Consumer app interface.
-OTEX,OPEN TEXT CORP,"$16,381,292.47",0.25,1,-23.05%,-13.22%,ECM. Enterprise Content Management UI.
-ESTC,ELASTIC NV,"$15,229,596.08",0.23,2,-21.63%,-49.21%,Search/Observability. Search APIs and backend logs.
-PATH,UIPATH INC CLASS A,"$14,535,066.72",0.22,2,-21.35%,-9.42%,"RPA/Bots. ""Software bots"" that automate tasks."
-BMNR,BITMINE IMMERSION TECHNOLOGIES INC,"$14,137,778.40",0.22,2,-24.60%,204.61%,Crypto Infra. Bitcoin mining hardware/hosting.
-BSY,BENTLEY SYSTEMS INC CLASS B,"$13,596,983.73",0.21,1,-13.10%,-28.37%,Infrastructure Engineering. CAD/Design UI.
-CORZ,CORE SCIENTIFIC INC,"$13,103,319.34",0.20,2,15.45%,31.12%,Crypto Infra. Blockchain data centers.
-AUR,AURORA INNOVATION INC CLASS A,"$13,082,931.54",0.20,2,11.46%,-45.13%,"Autonomous Driving. ""Driver"" is a bot; no human UI."
-QLYS,QUALYS INC,"$13,073,429.28",0.20,2,-16.63%,-19.54%,Security/Compliance. Vulnerability scanning agents.
-GTLB,GITLAB INC CLASS A,"$12,268,794.10",0.19,1,-14.39%,-54.92%,DevOps Platform. Developers use this UI for code mgmt.
-HUT,HUT CORP,"$12,198,684.48",0.19,2,15.50%,154.97%,Crypto Mining. Infrastructure/Compute.
-DBX,DROPBOX INC CLASS A,"$12,158,533.40",0.18,1,-10.07%,-21.83%,Cloud Storage. File management UI for humans.
-ACIW,ACI WORLDWIDE INC,"$11,955,585.08",0.18,2,-11.57%,-20.18%,Payments. Backend payment switching/processing.
-S,SENTINELONE INC CLASS A,"$11,841,487.95",0.18,2,-11.87%,-46.28%,Security. AI-powered endpoint protection agents.
-LIF,LIFE360 INC,"$11,809,687.16",0.18,1,-15.17%,20.40%,Family Safety. Consumer mobile app UI.
-APPF,APPFOLIO INC CLASS A,"$11,675,786.16",0.18,1,-22.75%,-19.43%,Real Estate. Property management UI.
-WULF,TERAWULF INC,"$11,244,565.12",0.17,2,24.37%,178.56%,Crypto Mining. Energy/Infrastructure.
-DLB,DOLBY LABORATORIES INC CLASS A,"$11,166,539.23",0.17,2,0.98%,-23.26%,Audio Tech. Licensing/Codecs (Backend technology).
-RIOT,RIOT PLATFORMS INC,"$11,111,854.86",0.17,2,14.05%,24.25%,Crypto Mining. Infrastructure.
-CIFR,CIPHER MINING INC,"$10,591,063.40",0.16,2,-0.20%,147.15%,Crypto Mining. Infrastructure.
-WK,WORKIVA INC CLASS A,"$10,321,524.91",0.16,1,-19.01%,-27.88%,Compliance. Reporting/ESG dashboard UI.
-CVLT,COMMVAULT SYSTEMS INC,"$10,228,667.68",0.16,2,-31.34%,-52.00%,Data Protection. Backup/Recovery infrastructure.
-BOX,BOX INC CLASS A,"$10,045,791.47",0.15,1,-17.52%,-28.90%,Cloud Content. Collaboration UI.
-PEGA,PEGASYSTEMS INC,"$9,984,830.60",0.15,1,-32.82%,-23.44%,BPM/CRM. Low-code and decisioning UI.
-TTAN,SERVICETITAN INC CLASS A,"$9,896,680.17",0.15,1,-40.15%,-38.54%,Trades Software. UI for contractors/plumbers.
-QTWO,Q2 HOLDINGS INC,"$9,840,010.86",0.15,1,-20.98%,-39.50%,Digital Banking. UI for bank customers.
-CCC,CCC INTELLIGENT SOLUTIONS HOLDINGS,"$9,465,413.28",0.14,1,-27.30%,-46.83%,Insurance/Auto. Claims processing UI.
-BILL,BILL HOLDINGS INC,"$9,072,103.84",0.14,1,-10.27%,-24.67%,SMB Finance. AP/AR automation UI.
-ZETA,ZETA GLOBAL HOLDINGS CORP CLASS A,"$9,008,768.00",0.14,2,-17.00%,-22.02%,Marketing Cloud. AI-driven marketing (often managed).
-SPSC,SPS COMMERCE INC,"$8,495,976.00",0.13,2,-10.77%,-55.11%,EDI/Supply Chain. Backend data connections.
-YOU,CLEAR SECURE INC CLASS A,"$8,241,424.38",0.13,1,-3.76%,46.78%,Identity. Biometric verification UI (Airport kiosks).
-SOUN,SOUNDHOUND AI INC CLASS A,"$8,117,509.05",0.12,2,-14.14%,-44.16%,Voice AI. Voice assistant APIs.
-CRCL,CIRCLE INTERNET GROUP INC CLASS A,"$7,743,406.57",0.12,2,-28.07%,#N/A,Stablecoin. Financial infrastructure/API.
-VRNS,VARONIS SYSTEMS INC,"$7,469,889.30",0.11,2,-30.95%,-47.35%,Data Security. Automated data protection platform.
-KVYO,KLAVIYO INC SERIES A,"$7,411,857.70",0.11,1,-41.05%,-61.09%,Marketing Automation. Email/SMS campaign UI.
-MARA,MARA HOLDINGS INC,"$7,259,603.89",0.11,2,-8.24%,-50.84%,Crypto Mining. Infrastructure.
-TDC,TERADATA CORP,"$7,111,300.25",0.11,2,-9.76%,-11.19%,Data Warehousing. Database infrastructure.
-TENB,TENABLE HOLDINGS INC,"$6,726,224.96",0.10,2,-9.77%,-48.03%,Cyber Exposure. Vulnerability scanning agents.
-CLSK,CLEANSPARK INC,"$6,626,984.45",0.10,2,-0.40%,-9.84%,Crypto Mining. Infrastructure.
-ALRM,ALARM.COM HOLDINGS INC,"$6,604,992.51",0.10,1,-5.49%,-22.85%,Smart Home. Security dashboard UI.
-AGYS,AGILYSYS INC,"$6,087,644.24",0.09,1,-27.63%,0.53%,Hospitality. POS/PMS UI for hotels.
-BL,BLACKLINE INC,"$5,943,341.32",0.09,1,-20.69%,-31.92%,Accounting. Financial close UI.
-RNG,RINGCENTRAL INC CLASS A,"$5,569,144.57",0.08,1,-6.41%,-22.37%,UCaaS. VoIP/Messaging UI.
-ADEA,ADEIA INC,"$5,406,674.64",0.08,2,4.93%,39.12%,IP Licensing. Intellectual property monetization.
-NCNO,NCINO INC,"$5,401,979.67",0.08,1,-29.21%,-44.93%,Banking. Cloud banking OS UI.
-OS,ONESTREAM INC CLASS A,"$5,357,447.35",0.08,1,27.91%,-21.95%,CPM. Corporate Performance Mgmt UI.
-BB,BLACKBERRY LTD,"$5,253,733.86",0.08,2,-8.71%,-37.55%,IoT/Security. QNX/Cylance (Embedded/Backend).
-FRSH,FRESHWORKS INC CLASS A,"$5,148,255.00",0.08,1,-27.18%,-51.26%,CRM/ITSM. Customer service UI.
-PRGS,PROGRESS SOFTWARE CORP,"$5,067,548.75",0.08,1,#N/A,-25.88%,App Dev/Infra. Backend tools/databases.
-BLKB,BLACKBAUD INC,"$4,840,499.01",0.07,1,#N/A,-40.47%,Non-Profit. Fundraising/Education UI.
-BRZE,BRAZE INC CLASS A,"$4,359,576.51",0.07,2,#N/A,-58.27%,Customer Engagement. Marketing campaign UI.
-RAMP,LIVERAMP HOLDINGS INC,"$4,070,530.36",0.06,1,#N/A,-34.82%,Data Connectivity. Identity resolution APIs.
-AVPT,AVEPOINT INC CLASS A,"$4,054,276.88",0.06,2,#N/A,-46.10%,Data Management. Microsoft 365 backup UI.
-ATEN,A10 NETWORKS INC,"$3,954,975.99",0.06,1,#N/A,-4.28%,Networking. Load balancers/ADC infrastructure.
-INTA,INTAPP INC,"$3,833,768.22",0.06,1,#N/A,-66.33%,Professional Services. Industry cloud UI.
-ALKT,ALKAMI TECHNOLOGY INC,"$3,782,752.36",0.06,1,#N/A,-50.60%,Digital Banking. Bank customer UI.
-VYX,NCR VOYIX CORP,"$3,740,839.40",0.06,1,#N/A,-22.75%,Retail/Restaurant. POS software UI.
-FIVN,FIVE9 INC,"$3,571,654.89",0.05,2,#N/A,-58.34%,CCaaS. Call center agent UI.
-AI,C3 AI INC CLASS A,"$3,498,085.85",0.05,2,#N/A,-66.80%,Enterprise AI. AI application platform (Backend).
-NN,NEXTNAV INC,"$3,446,967.60",0.05,1,#N/A,25.08%,GPS/Geolocation. 3D geolocation infrastructure.
-LSPD,LIGHTSPEED COMMERCE INC,"$3,307,209.92",0.05,2,#N/A,-30.43%,POS/E-com. Retail/Restaurant UI.
-VERX,VERTEX INC CLASS A,"$3,134,476.80",0.05,1,#N/A,-71.92%,Tax Tech. Indirect tax calculation APIs.
-APPN,APPIAN CORP CLASS A,"$2,850,776.15",0.04,1,#N/A,-25.70%,Low-Code. Process automation UI.
-PAR,PAR TECHNOLOGY CORP,"$2,498,251.86",0.04,1,#N/A,-68.90%,Restaurant. POS/Loyalty UI.
-ASAN,ASANA INC CLASS A,"$2,192,992.74",0.03,2,#N/A,-62.63%,Work Management. Project tracking UI.
-PD,PAGERDUTY INC,"$2,090,924.60",0.03,1,#N/A,-57.86%,Incident Response. Alerting infrastructure (Bot-triggered).
-CXM,SPRINKLR INC CLASS A,"$2,054,487.40",0.03,2,#N/A,-33.11%,CXM. Social media management UI.
-RPD,RAPID7 INC,"$1,723,692.55",0.03,1,#N/A,-71.78%,Security. Vulnerability management agents.
-SEMR,SEMRUSH HOLDINGS INC CLASS A,"$1,470,149.12",0.02,1,#N/A,-35.71%,MarTech. SEO/Marketing analytics UI.
-NABL,N ABLE INC,"$1,152,003.25",0.02,1,#N/A,-43.84%,MSP Software. IT management dashboard.
+Ticker,Company,Market Value,Weighting,Type,YTD,YOY,Category Logic,,,,,,
+MSFT,MICROSOFT CORP,"$637,689,892.53",9.70,1,-17.05%,-2.69%,"OS, Office, Teams. The primary interface for global work.",,,,,#N/A,#N/A
+PLTR,PALANTIR TECHNOLOGIES INC CLASS A,"$536,384,467.17",8.16,1,-23.54%,16.50%,Foundry/Gotham. Analysts use these dashboards for intel/decisions.,,,,,#N/A,#N/A
+CRM,SALESFORCE INC,"$506,098,317.12",7.70,1,-27.77%,-41.52%,CRM. Salespeople input/track data via UI manually.,,,,,#N/A,#N/A
+ORCL,ORACLE CORP,"$474,470,126.88",7.22,1,-26.73%,-20.18%,ERP/HCM. Back-office applications used by HR/Finance staff.,,,,,#N/A,#N/A
+INTU,INTUIT INC,"$339,387,237.42",5.16,1,-33.01%,-24.38%,TurboTax/QuickBooks. Visual financial tools for consumers/SMBs.,,,,,#N/A,#N/A
+ADBE,ADOBE INC,"$321,491,911.73",4.89,1,-23.32%,-40.51%,Creative Cloud. Designers stare at this UI all day.,,,,,#N/A,#N/A
+PANW,PALO ALTO NETWORKS INC,"$301,777,510.65",4.59,2,-13.51%,-18.88%,Firewalls/Security. Network layer protection; low human interaction.,,,,,#N/A,#N/A
+APP,APPLOVIN CORP CLASS A,"$284,234,848.85",4.32,2,-39.64%,5.81%,"AdTech/Algorithms. Automated mediation engines; no ""user"".",,,,,#N/A,#N/A
+CRWD,CROWDSTRIKE HOLDINGS INC CLASS A,"$269,776,136.28",4.10,2,-15.63%,-7.79%,"Endpoint Security. Background agent; ""set and forget"".",,,,,#N/A,#N/A
+NOW,SERVICENOW INC,"$246,737,914.50",3.75,1,-34.24%,-50.70%,ITSM. IT staff manage tickets and workflows via dashboard.,,,,,#N/A,#N/A
+SNPS,SYNOPSYS INC,"$217,360,815.20",3.31,1,-9.12%,-19.66%,EDA. Engineers use this interface to design silicon chips.,,,,,#N/A,#N/A
+CDNS,CADENCE DESIGN SYSTEMS INC,"$209,612,431.60",3.19,1,-9.30%,-7.23%,EDA. Visual workspace for electronic design.,,,,,#N/A,#N/A
+ADSK,AUTODESK INC,"$144,560,982.76",2.20,1,-18.79%,-21.18%,CAD/Revit. Architects/Engineers click to draw 3D models.,,,,,#N/A,#N/A
+FTNT,FORTINET INC,"$142,212,127.50",2.16,2,4.22%,-24.45%,Firewalls/Security. Infrastructure hardware/software.,,,,,#N/A,#N/A
+EA,ELECTRONIC ARTS INC,"$126,702,118.48",1.93,1,-2.12%,51.41%,Video Games. Pure visual entertainment for humans.,,,,,#N/A,#N/A
+ROP,ROPER TECHNOLOGIES INC,"$107,713,125.00",1.64,2,-18.58%,-36.92%,Industrial/Backend. Automated controls and vertical software.,,,,,#N/A,#N/A
+DDOG,DATADOG INC CLASS A,"$99,018,544.04",1.51,2,-17.87%,-24.07%,Observability. Monitoring servers/logs; automated alerting.,,,,,#N/A,#N/A
+WDAY,WORKDAY INC CLASS A,"$98,194,647.60",1.49,1,-24.15%,-39.63%,HCM/Finance. Corporate dashboard for employee management.,,,,,#N/A,#N/A
+TTWO,TAKE TWO INTERACTIVE SOFTWARE INC,"$95,688,583.20",1.46,1,-23.61%,-7.96%,Video Games (GTA). Human entertainment interface.,,,,,#N/A,#N/A
+FICO,FAIR ISAAC CORP,"$91,761,613.36",1.40,2,-17.72%,-25.11%,"Scoring/Decisioning. Value is the ""Score"" (API), not the UI.",,,,,#N/A,#N/A
+MSTR,STRATEGY INC CLASS A,"$81,652,307.23",1.24,1,-11.20%,-59.68%,"BI Dashboards. (Note: Stock moves on Bitcoin, not software).",,,,,#N/A,#N/A
+ZM,ZOOM COMMUNICATIONS INC CLASS A,"$67,679,509.88",1.03,1,6.85%,5.86%,Video Conferencing. Human-to-human visual connection.,,,,,#N/A,#N/A
+PTC,PTC INC,"$52,591,907.66",0.80,1,-10.61%,-7.54%,CAD/PLM. Industrial design software for engineers.,,,,,#N/A,#N/A
+ZS,ZSCALER INC,"$48,892,390.82",0.74,2,-25.60%,-21.27%,Security Service Edge. Network traffic filtering infrastructure.,,,,,#N/A,#N/A
+TEAM,ATLASSIAN CORP CLASS A,"$47,115,755.70",0.72,1,-41.58%,-70.67%,Jira/Confluence. Project management UI for developers.,,,,,#N/A,#N/A
+TRMB,TRIMBLE INC,"$43,346,258.06",0.66,1,-15.57%,-11.04%,Industrial UI. GPS/Construction hardware-software interface.,,,,,#N/A,#N/A
+TYL,TYLER TECHNOLOGIES INC,"$41,761,144.62",0.64,1,-23.26%,-43.06%,GovTech. Courts/Public sector management UI.,,,,,#N/A,#N/A
+GEN,GEN DIGITAL INC,"$35,909,981.40",0.55,2,-10.81%,-13.76%,Consumer Security. Background AV/Identity protection.,,,,,#N/A,#N/A
+HUBS,HUBSPOT INC,"$33,329,287.19",0.51,1,-42.04%,-71.13%,CRM/Marketing. Marketers use this UI for campaigns.,,,,,#N/A,#N/A
+GWRE,GUIDEWIRE SOFTWARE INC,"$30,560,008.41",0.46,1,-36.23%,-41.23%,P&C Insurance. Claims/Policy management UI.,,,,,#N/A,#N/A
+NTNX,NUTANIX INC CLASS A,"$29,653,050.24",0.45,2,-22.11%,-43.89%,HCI/Cloud Infra. Backend infrastructure management.,,,,,#N/A,#N/A
+DT,DYNATRACE INC,"$28,783,731.42",0.44,2,-22.22%,-44.93%,Observability. Automated app performance monitoring.,,,,,#N/A,#N/A
+DOCU,DOCUSIGN INC,"$26,138,684.88",0.40,1,-31.10%,-48.13%,eSignature. Humans click to sign documents.,,,,,#N/A,#N/A
+CFLT,CONFLUENT INC CLASS A,"$25,863,775.08",0.39,2,1.09%,-2.83%,Data Streaming. Kafka APIs; plumbing for real-time data.,,,,,#N/A,#N/A
+IDCC,INTERDIGITAL INC,"$25,233,851.55",0.38,2,16.55%,79.22%,"R&D/Licensing. Value is IP/Patents, not user software.",,,,,#N/A,#N/A
+IOT,SAMSARA INC CLASS A,"$24,117,013.00",0.37,2,-28.29%,-53.80%,IoT/Telematics. Sensors feed data; heavy hardware/API component.,,,,,#N/A,#N/A
+MANH,MANHATTAN ASSOCIATES INC,"$23,759,546.16",0.36,1,-16.29%,-18.36%,Supply Chain. Warehouse management UI for logistics staff.,,,,,#N/A,#N/A
+U,UNITY SOFTWARE INC,"$22,617,680.80",0.34,1,-43.15%,23.09%,3D Engine. Developers work in this UI to build games.,,,,,#N/A,#N/A
+RBRK,RUBRIK INC CLASS A,"$19,603,368.54",0.30,2,-33.22%,-33.64%,Zero Trust Data Security. Backup/Recovery infrastructure.,,,,,#N/A,#N/A
+CWAN,CLEARWATER ANALYTICS HOLDINGS INC,"$19,299,526.88",0.29,1,-1.12%,-15.12%,Accounting/Compliance. Financial reporting UI.,,,,,#N/A,#N/A
+PCOR,PROCORE TECHNOLOGIES INC,"$17,605,548.57",0.27,1,-29.49%,-32.78%,Construction. Project management UI for builders.,,,,,#N/A,#N/A
+QBTS,D WAVE QUANTUM INC,"$16,960,300.11",0.26,2,-20.76%,255.40%,Quantum Computing. Cloud access to quantum processors (API).,,,,,#N/A,#N/A
+DSGX,DESCARTES SYSTEMS GROUP INC,"$16,659,119.76",0.25,1,-23.82%,-45.49%,Logistics. Supply chain visibility UI.,,,,,#N/A,#N/A
+SNAP,SNAP INC CLASS A,"$16,417,955.84",0.25,1,-35.32%,-51.26%,Social Media. Consumer app interface.,,,,,#N/A,#N/A
+OTEX,OPEN TEXT CORP,"$16,381,292.47",0.25,1,-23.05%,-13.22%,ECM. Enterprise Content Management UI.,,,,,#N/A,#N/A
+ESTC,ELASTIC NV,"$15,229,596.08",0.23,2,-21.63%,-49.21%,Search/Observability. Search APIs and backend logs.,,,,,#N/A,#N/A
+PATH,UIPATH INC CLASS A,"$14,535,066.72",0.22,2,-21.35%,-9.42%,"RPA/Bots. ""Software bots"" that automate tasks.",,,,,#N/A,#N/A
+BMNR,BITMINE IMMERSION TECHNOLOGIES INC,"$14,137,778.40",0.22,2,-24.60%,204.61%,Crypto Infra. Bitcoin mining hardware/hosting.,,,,,#N/A,#N/A
+BSY,BENTLEY SYSTEMS INC CLASS B,"$13,596,983.73",0.21,1,-13.10%,-28.37%,Infrastructure Engineering. CAD/Design UI.,,,,,#N/A,#N/A
+CORZ,CORE SCIENTIFIC INC,"$13,103,319.34",0.20,2,15.45%,31.12%,Crypto Infra. Blockchain data centers.,,,,,#N/A,#N/A
+AUR,AURORA INNOVATION INC CLASS A,"$13,082,931.54",0.20,2,11.46%,-45.13%,"Autonomous Driving. ""Driver"" is a bot; no human UI.",,,,,#N/A,#N/A
+QLYS,QUALYS INC,"$13,073,429.28",0.20,2,-16.63%,-19.54%,Security/Compliance. Vulnerability scanning agents.,,,,,#N/A,#N/A
+GTLB,GITLAB INC CLASS A,"$12,268,794.10",0.19,1,-14.39%,-54.92%,DevOps Platform. Developers use this UI for code mgmt.,,,,,#N/A,#N/A
+HUT,HUT CORP,"$12,198,684.48",0.19,2,15.50%,154.97%,Crypto Mining. Infrastructure/Compute.,,,,,#N/A,#N/A
+DBX,DROPBOX INC CLASS A,"$12,158,533.40",0.18,1,-10.07%,-21.83%,Cloud Storage. File management UI for humans.,,,,,#N/A,#N/A
+ACIW,ACI WORLDWIDE INC,"$11,955,585.08",0.18,2,-11.57%,-20.18%,Payments. Backend payment switching/processing.,,,,,#N/A,#N/A
+S,SENTINELONE INC CLASS A,"$11,841,487.95",0.18,2,-11.87%,-46.28%,Security. AI-powered endpoint protection agents.,,,,,#N/A,#N/A
+LIF,LIFE360 INC,"$11,809,687.16",0.18,1,-15.17%,20.40%,Family Safety. Consumer mobile app UI.,,,,,#N/A,#N/A
+APPF,APPFOLIO INC CLASS A,"$11,675,786.16",0.18,1,-22.75%,-19.43%,Real Estate. Property management UI.,,,,,#N/A,#N/A
+WULF,TERAWULF INC,"$11,244,565.12",0.17,2,24.37%,178.56%,Crypto Mining. Energy/Infrastructure.,,,,,#N/A,#N/A
+DLB,DOLBY LABORATORIES INC CLASS A,"$11,166,539.23",0.17,2,0.98%,-23.26%,Audio Tech. Licensing/Codecs (Backend technology).,,,,,#N/A,#N/A
+RIOT,RIOT PLATFORMS INC,"$11,111,854.86",0.17,2,14.05%,24.25%,Crypto Mining. Infrastructure.,,,,,#N/A,#N/A
+CIFR,CIPHER MINING INC,"$10,591,063.40",0.16,2,-0.20%,147.15%,Crypto Mining. Infrastructure.,,,,,#N/A,#N/A
+WK,WORKIVA INC CLASS A,"$10,321,524.91",0.16,1,-19.01%,-27.88%,Compliance. Reporting/ESG dashboard UI.,,,,,#N/A,#N/A
+CVLT,COMMVAULT SYSTEMS INC,"$10,228,667.68",0.16,2,-31.34%,-52.00%,Data Protection. Backup/Recovery infrastructure.,,,,,#N/A,#N/A
+BOX,BOX INC CLASS A,"$10,045,791.47",0.15,1,-17.52%,-28.90%,Cloud Content. Collaboration UI.,,,,,#N/A,#N/A
+PEGA,PEGASYSTEMS INC,"$9,984,830.60",0.15,1,-32.82%,-23.44%,BPM/CRM. Low-code and decisioning UI.,,,,,#N/A,#N/A
+TTAN,SERVICETITAN INC CLASS A,"$9,896,680.17",0.15,1,-40.15%,-38.54%,Trades Software. UI for contractors/plumbers.,,,,,#N/A,#N/A
+QTWO,Q2 HOLDINGS INC,"$9,840,010.86",0.15,1,-20.98%,-39.50%,Digital Banking. UI for bank customers.,,,,,#N/A,#N/A
+CCC,CCC INTELLIGENT SOLUTIONS HOLDINGS,"$9,465,413.28",0.14,1,-27.30%,-46.83%,Insurance/Auto. Claims processing UI.,,,,,#N/A,#N/A
+BILL,BILL HOLDINGS INC,"$9,072,103.84",0.14,1,-10.27%,-24.67%,SMB Finance. AP/AR automation UI.,,,,,#N/A,#N/A
+ZETA,ZETA GLOBAL HOLDINGS CORP CLASS A,"$9,008,768.00",0.14,2,-17.00%,-22.02%,Marketing Cloud. AI-driven marketing (often managed).,,,,,#N/A,#N/A
+SPSC,SPS COMMERCE INC,"$8,495,976.00",0.13,2,-10.77%,-55.11%,EDI/Supply Chain. Backend data connections.,,,,,#N/A,#N/A
+YOU,CLEAR SECURE INC CLASS A,"$8,241,424.38",0.13,1,-3.76%,46.78%,Identity. Biometric verification UI (Airport kiosks).,,,,,#N/A,#N/A
+SOUN,SOUNDHOUND AI INC CLASS A,"$8,117,509.05",0.12,2,-14.14%,-44.16%,Voice AI. Voice assistant APIs.,,,,,#N/A,#N/A
+CRCL,CIRCLE INTERNET GROUP INC CLASS A,"$7,743,406.57",0.12,2,-28.07%,#N/A,Stablecoin. Financial infrastructure/API.,,,,,#N/A,#N/A
+VRNS,VARONIS SYSTEMS INC,"$7,469,889.30",0.11,2,-30.95%,-47.35%,Data Security. Automated data protection platform.,,,,,#N/A,#N/A
+KVYO,KLAVIYO INC SERIES A,"$7,411,857.70",0.11,1,-41.05%,-61.09%,Marketing Automation. Email/SMS campaign UI.,,,,,#N/A,#N/A
+MARA,MARA HOLDINGS INC,"$7,259,603.89",0.11,2,-8.24%,-50.84%,Crypto Mining. Infrastructure.,,,,,#N/A,#N/A
+TDC,TERADATA CORP,"$7,111,300.25",0.11,2,-9.76%,-11.19%,Data Warehousing. Database infrastructure.,,,,,#N/A,#N/A
+TENB,TENABLE HOLDINGS INC,"$6,726,224.96",0.10,2,-9.77%,-48.03%,Cyber Exposure. Vulnerability scanning agents.,,,,,#N/A,#N/A
+CLSK,CLEANSPARK INC,"$6,626,984.45",0.10,2,-0.40%,-9.84%,Crypto Mining. Infrastructure.,,,,,#N/A,#N/A
+ALRM,ALARM.COM HOLDINGS INC,"$6,604,992.51",0.10,1,-5.49%,-22.85%,Smart Home. Security dashboard UI.,,,,,#N/A,#N/A
+AGYS,AGILYSYS INC,"$6,087,644.24",0.09,1,-27.63%,0.53%,Hospitality. POS/PMS UI for hotels.,,,,,#N/A,#N/A
+BL,BLACKLINE INC,"$5,943,341.32",0.09,1,-20.69%,-31.92%,Accounting. Financial close UI.,,,,,#N/A,#N/A
+RNG,RINGCENTRAL INC CLASS A,"$5,569,144.57",0.08,1,-6.41%,-22.37%,UCaaS. VoIP/Messaging UI.,,,,,#N/A,#N/A
+ADEA,ADEIA INC,"$5,406,674.64",0.08,2,4.93%,39.12%,IP Licensing. Intellectual property monetization.,,,,,#N/A,#N/A
+NCNO,NCINO INC,"$5,401,979.67",0.08,1,-29.21%,-44.93%,Banking. Cloud banking OS UI.,,,,,#N/A,#N/A
+OS,ONESTREAM INC CLASS A,"$5,357,447.35",0.08,1,27.91%,-21.95%,CPM. Corporate Performance Mgmt UI.,,,,,#N/A,#N/A
+BB,BLACKBERRY LTD,"$5,253,733.86",0.08,2,-8.71%,-37.55%,IoT/Security. QNX/Cylance (Embedded/Backend).,,,,,#N/A,#N/A
+FRSH,FRESHWORKS INC CLASS A,"$5,148,255.00",0.08,1,-27.18%,-51.26%,CRM/ITSM. Customer service UI.,,,,,#N/A,#N/A
+PRGS,PROGRESS SOFTWARE CORP,"$5,067,548.75",0.08,1,0.07%,-25.88%,App Dev/Infra. Backend tools/databases.,,,,,#N/A,#N/A
+BLKB,BLACKBAUD INC,"$4,840,499.01",0.07,1,-25.02%,-40.47%,Non-Profit. Fundraising/Education UI.,,,,,#N/A,#N/A
+BRZE,BRAZE INC CLASS A,"$4,359,576.51",0.07,2,-48.12%,-58.27%,Customer Engagement. Marketing campaign UI.,,,,,#N/A,#N/A
+RAMP,LIVERAMP HOLDINGS INC,"$4,070,530.36",0.06,1,-20.97%,-34.82%,Data Connectivity. Identity resolution APIs.,,,,,#N/A,#N/A
+AVPT,AVEPOINT INC CLASS A,"$4,054,276.88",0.06,2,-23.90%,-46.10%,Data Management. Microsoft 365 backup UI.,,,,,#N/A,#N/A
+ATEN,A10 NETWORKS INC,"$3,954,975.99",0.06,1,11.19%,-4.28%,Networking. Load balancers/ADC infrastructure.,,,,,#N/A,#N/A
+INTA,INTAPP INC,"$3,833,768.22",0.06,1,-47.80%,-66.33%,Professional Services. Industry cloud UI.,,,,,#N/A,#N/A
+ALKT,ALKAMI TECHNOLOGY INC,"$3,782,752.36",0.06,1,-24.45%,-50.60%,Digital Banking. Bank customer UI.,,,,,#N/A,#N/A
+VYX,NCR VOYIX CORP,"$3,740,839.40",0.06,1,-3.43%,-22.75%,Retail/Restaurant. POS software UI.,,,,,#N/A,#N/A
+FIVN,FIVE9 INC,"$3,571,654.89",0.05,2,-14.81%,-58.34%,CCaaS. Call center agent UI.,,,,,#N/A,#N/A
+AI,C3 AI INC CLASS A,"$3,498,085.85",0.05,2,-13.58%,-66.80%,Enterprise AI. AI application platform (Backend).,,,,,#N/A,#N/A
+NN,NEXTNAV INC,"$3,446,967.60",0.05,1,-9.80%,25.08%,GPS/Geolocation. 3D geolocation infrastructure.,,,,,#N/A,#N/A
+LSPD,LIGHTSPEED COMMERCE INC,"$3,307,209.92",0.05,2,-23.34%,-30.43%,POS/E-com. Retail/Restaurant UI.,,,,,#N/A,#N/A
+VERX,VERTEX INC CLASS A,"$3,134,476.80",0.05,1,-21.23%,-71.92%,Tax Tech. Indirect tax calculation APIs.,,,,,#N/A,#N/A
+APPN,APPIAN CORP CLASS A,"$2,850,776.15",0.04,1,-28.83%,-25.70%,Low-Code. Process automation UI.,,,,,#N/A,#N/A
+PAR,PAR TECHNOLOGY CORP,"$2,498,251.86",0.04,1,-38.70%,-68.90%,Restaurant. POS/Loyalty UI.,,,,,#N/A,#N/A
+ASAN,ASANA INC CLASS A,"$2,192,992.74",0.03,2,-36.11%,-62.63%,Work Management. Project tracking UI.,,,,,#N/A,#N/A
+PD,PAGERDUTY INC,"$2,090,924.60",0.03,1,-38.67%,-57.86%,Incident Response. Alerting infrastructure (Bot-triggered).,,,,,#N/A,#N/A
+CXM,SPRINKLR INC CLASS A,"$2,054,487.40",0.03,2,-22.88%,-33.11%,CXM. Social media management UI.,,,,,#N/A,#N/A
+RPD,RAPID7 INC,"$1,723,692.55",0.03,1,-28.88%,-71.78%,Security. Vulnerability management agents.,,,,,#N/A,#N/A
+SEMR,SEMRUSH HOLDINGS INC CLASS A,"$1,470,149.12",0.02,1,-0.67%,-35.71%,MarTech. SEO/Marketing analytics UI.,,,,,#N/A,#N/A
+NABL,N ABLE INC,"$1,152,003.25",0.02,1,-25.00%,-43.84%,MSP Software. IT management dashboard.,,,,,#N/A,#N/A
